@@ -1,3 +1,4 @@
-To Do:
+File is in MS Access format
 
-Download MS Access and import MDB file
+To Do:
+- Download Access and inspect file
