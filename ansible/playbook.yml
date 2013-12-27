@@ -3,5 +3,5 @@
   tasks:
   # TODO add custom /etc/ssh/sshd_config
   - name: Install python-describe
-    pip: name=describe state=present version=dev
+    pip: name=describe state=present
     sudo: yes
