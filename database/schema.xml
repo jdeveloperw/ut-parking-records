@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- SQL XML created by WWW SQL Designer, http://code.google.com/p/wwwsqldesigner/ -->
+<!-- Active URL: http://ondras.zarovi.cz/sql/demo/ -->
+<sql>
+<datatypes db="mysql">
+<group label="Numeric" color="rgb(238,238,170)">
+<type label="TINYINT" length="0" sql="TINYINT" quote=""/>
+<type label="SMALLINT" length="0" sql="SMALLINT" quote=""/>
+<type label="MEDIUMINT" length="0" sql="MEDIUMINT" quote=""/>
+<type label="INT" length="0" sql="INT" quote=""/>
+<type label="Integer" length="0" sql="INTEGER" quote=""/>
+<type label="BIGINT" length="0" sql="BIGINT" quote=""/>
+<type label="Decimal" length="1" sql="DECIMAL" re="DEC" quote=""/>
+<type label="Single precision" length="0" sql="FLOAT" quote=""/>
+<type label="Double precision" length="0" sql="DOUBLE" re="DOUBLE" quote=""/>
+</group>
+<group label="Character" color="rgb(255,200,200)">
+<type label="Char" length="1" sql="CHAR" quote="'"/>
+<type label="Varchar" length="1" sql="VARCHAR" quote="'"/>
+<type label="Text" length="0" sql="MEDIUMTEXT" re="TEXT" quote="'"/>
+<type label="Binary" length="1" sql="BINARY" quote="'"/>
+<type label="Varbinary" length="1" sql="VARBINARY" quote="'"/>
+<type label="BLOB" length="0" sql="BLOB" re="BLOB" quote="'"/>
+</group>
+<group label="Date &amp; Time" color="rgb(200,255,200)">
+<type label="Date" length="0" sql="DATE" quote="'"/>
+<type label="Time" length="0" sql="TIME" quote="'"/>
+<type label="Datetime" length="0" sql="DATETIME" quote="'"/>
+<type label="Year" length="0" sql="YEAR" quote=""/>
+<type label="Timestamp" length="0" sql="TIMESTAMP" quote="'"/>
+</group>
+<group label="Miscellaneous" color="rgb(200,200,255)">
+<type label="ENUM" length="1" sql="ENUM" quote=""/>
+<type label="SET" length="1" sql="SET" quote=""/>
+<type label="Bit" length="0" sql="bit" quote=""/>
+</group>
+</datatypes><table x="312" y="355" name="parking_record">
+<row name="pr_id" null="0" autoincrement="1">
+<datatype>TINYINT</datatype>
+<default>NULL</default></row>
+<row name="pr_number_of_permits" null="0" autoincrement="0">
+<datatype>INT</datatype>
+<default>NULL</default></row>
+<row name="pr_has_placard" null="0" autoincrement="0">
+<datatype>bit</datatype>
+<default>NULL</default></row>
+<row name="pr_is_handicapped" null="0" autoincrement="0">
+<datatype>bit</datatype>
+<default>NULL</default></row>
+<row name="pr_is_wheelchair_accessible" null="0" autoincrement="0">
+<datatype>bit</datatype>
+<default>NULL</default></row>
+<row name="pr_is_return" null="0" autoincrement="0">
+<datatype>bit</datatype>
+<default>NULL</default></row>
+<row name="pr_year" null="0" autoincrement="0">
+<datatype>YEAR</datatype>
+<default>NULL</default></row>
+<row name="pr_first_permit_number" null="1" autoincrement="0">
+<datatype>TINYINT</datatype>
+<default>NULL</default></row>
+<row name="pr_last_permit_number" null="1" autoincrement="0">
+<datatype>TINYINT</datatype>
+<default>NULL</default></row>
+<row name="pr_lot_id" null="1" autoincrement="0">
+<datatype>TINYINT</datatype>
+<default>NULL</default><relation table="lot" row="lot_id" />
+</row>
+<row name="pr_type_id" null="1" autoincrement="0">
+<datatype>BIGINT</datatype>
+<default>NULL</default><relation table="type" row="type_id" />
+</row>
+<row name="pr_payment_type_id" null="1" autoincrement="0">
+<datatype>BIGINT</datatype>
+<default>NULL</default><relation table="payment_type" row="payment_type_id" />
+</row>
+<row name="pr_sport_id" null="0" autoincrement="0">
+<datatype>BIGINT</datatype>
+<default>NULL</default><relation table="sport" row="sport_id" />
+</row>
+<row name="pr_contact_department_id" null="1" autoincrement="0">
+<datatype>TINYINT</datatype>
+<default>NULL</default><relation table="department" row="department_id" />
+</row>
+<row name="pr_contact_person_id" null="1" autoincrement="0">
+<datatype>TINYINT</datatype>
+<default>NULL</default><relation table="person" row="person_id" />
+</row>
+<key type="PRIMARY" name="">
+<part>pr_id</part>
+</key>
+</table>
+<table x="549" y="501" name="person">
+<row name="person_id" null="1" autoincrement="1">
+<datatype>TINYINT</datatype>
+<default>NULL</default></row>
+<row name="person_netid" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="person_first_name" null="0" autoincrement="0">
+<datatype>VARCHAR(256)</datatype>
+<default>'NULL'</default></row>
+<row name="person_last_name" null="0" autoincrement="0">
+<datatype>VARCHAR(256)</datatype>
+<default>'NULL'</default></row>
+<row name="person_email" null="1" autoincrement="0">
+<datatype>VARCHAR(256)</datatype>
+<default>NULL</default></row>
+<row name="person_address_id" null="1" autoincrement="0">
+<datatype>TINYINT</datatype>
+<default>NULL</default><relation table="address" row="address_id" />
+</row>
+<key type="PRIMARY" name="">
+<part>person_id</part>
+</key>
+</table>
+<table x="835" y="411" name="address">
+<row name="address_id" null="0" autoincrement="1">
+<datatype>TINYINT</datatype>
+<default>NULL</default></row>
+<row name="address_line_1" null="1" autoincrement="0">
+<datatype>VARCHAR(256)</datatype>
+<default>NULL</default></row>
+<row name="address_line_2" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="address_city" null="1" autoincrement="0">
+<datatype>CHAR(128)</datatype>
+<default>NULL</default></row>
+<row name="address_zip_code" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="address_state_id" null="1" autoincrement="0">
+<datatype>TINYINT</datatype>
+<default>NULL</default><relation table="state" row="state_id" />
+</row>
+<key type="PRIMARY" name="">
+<part>address_id</part>
+</key>
+</table>
+<table x="549" y="363" name="department">
+<row name="department_id" null="0" autoincrement="1">
+<datatype>TINYINT</datatype>
+<default>NULL</default></row>
+<row name="department_name" null="1" autoincrement="0">
+<datatype>VARCHAR(256)</datatype>
+<default>NULL</default></row>
+<row name="department_contact_person_id" null="0" autoincrement="0">
+<datatype>TINYINT</datatype>
+<default>NULL</default><relation table="person" row="person_id" />
+</row>
+<row name="department_address_id" null="1" autoincrement="0">
+<datatype>TINYINT</datatype>
+<default>NULL</default><relation table="address" row="address_id" />
+</row>
+<key type="PRIMARY" name="">
+<part>department_id</part>
+</key>
+</table>
+<table x="173" y="355" name="lot">
+<row name="lot_id" null="1" autoincrement="1">
+<datatype>TINYINT</datatype>
+<default>NULL</default></row>
+<row name="lot_name" null="0" autoincrement="0">
+<datatype>VARCHAR(256)</datatype>
+<default>'NULL'</default></row>
+<key type="PRIMARY" name="">
+<part>lot_id</part>
+</key>
+</table>
+<table x="164" y="433" name="type">
+<row name="type_id" null="0" autoincrement="1">
+<datatype>BIGINT</datatype>
+<default>NULL</default></row>
+<row name="type_name" null="0" autoincrement="0">
+<datatype>VARCHAR(256)</datatype>
+<default>'NULL'</default></row>
+<key type="PRIMARY" name="">
+<part>type_id</part>
+</key>
+</table>
+<table x="104" y="510" name="payment_type">
+<row name="payment_type_id" null="0" autoincrement="1">
+<datatype>BIGINT</datatype>
+<default>NULL</default></row>
+<row name="payment_type_name" null="0" autoincrement="0">
+<datatype>VARCHAR(256)</datatype>
+<default>'NULL'</default></row>
+<key type="PRIMARY" name="">
+<part>payment_type_id</part>
+</key>
+</table>
+<table x="163" y="587" name="sport">
+<row name="sport_id" null="0" autoincrement="1">
+<datatype>BIGINT</datatype>
+<default>NULL</default></row>
+<row name="sport_name" null="0" autoincrement="0">
+<datatype>VARCHAR(256)</datatype>
+<default>'NULL'</default></row>
+<key type="PRIMARY" name="">
+<part>sport_id</part>
+</key>
+</table>
+<table x="837" y="571" name="state">
+<row name="state_id" null="1" autoincrement="1">
+<datatype>TINYINT</datatype>
+<default>NULL</default></row>
+<row name="state_code" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="state_name" null="1" autoincrement="0">
+<datatype>VARCHAR(64)</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>state_id</part>
+</key>
+</table>
+</sql>
+
