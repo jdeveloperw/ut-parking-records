@@ -1,0 +1,7 @@
+---
+- hosts: localhost
+  tasks:
+  # TODO add custom /etc/ssh/sshd_config
+  - name: Install python-describe
+    pip: name=describe state=present version=dev
+    sudo: yes
