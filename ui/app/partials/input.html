@@ -1,4 +1,8 @@
+<!-- TODO
+* Tooltips
+-->
 <form class='css-form' data-ng-controller="InputFormController" novalidate>
+  <!-- TODO should we be using html5 min/max? -->
   <div>
     <label>number of permits</label>
     <input type="number" min=1 data-ng-model='parking_record.number_of_permits' required positive-integer />
@@ -24,9 +28,10 @@
     <input type="checkbox" required />
   </div>
 
-  <div>
+  <!-- TODO should we be using html5 min/max? -->
+  <div data-ng-controller='YearController'>
     <label>year</label>
-    <input type="date" required />
+    <input type="number" min='{{ min_year }}' max='{{ max_year }}' data-ng-model='parking_record.year' valid-year required />
   </div>
 
   <div>

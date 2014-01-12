@@ -49,4 +49,24 @@ angular.module('myApp.directives', [])
       }
     };
   })
+  /* TODO DRY with YearController using a common service */
+  .directive('validYear', function() {
+    return {
+      require: 'ngModel',
+      link: function(scope, elm, attrs, ctrl) {
+        ctrl.$parsers.unshift(function(viewValue) {
+          var year = parseInt(viewValue)
+          if (2007 <= year && year <= 2015) {
+            // it is valid
+            ctrl.$setValidity('validYear', true);
+            return viewValue;
+          } else {
+            // it is invalid, return undefined (no model update)
+            ctrl.$setValidity('validYear', false);
+            return undefined;
+          }
+        });
+      }
+    };
+  })
   ;

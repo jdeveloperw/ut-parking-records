@@ -19,6 +19,10 @@ angular.module('myApp.controllers', [])
       sport: 'football!',
       department: 'nuclear engineering',
       person: 'Ashly!'
-    }
+    };
+  })
+  .controller('YearController', function($scope) {
+    $scope.min_year = 2007;
+    $scope.max_year = 2015;
   })
   ;
