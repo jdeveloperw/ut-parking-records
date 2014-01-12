@@ -1,78 +1,85 @@
-<!-- TODO can we abstract this so we iterate through a list of fields instead of declaring each one? -->
-<form>
+<form class='css-form' data-ng-controller="InputFormController" novalidate>
   <div>
     <label>number of permits</label>
-    <input type="number"/>
+    <input type="number" min=1 data-ng-model='parking_record.number_of_permits' required positive-integer />
   </div>
 
   <div>
     <label>has placard</label>
-    <input type="checkbox"/>
+    <input type="checkbox" required />
   </div>
 
   <div>
     <label>is handicapped</label>
-    <input type="checkbox"/>
+    <input type="checkbox" required />
   </div>
 
   <div>
     <label>is wheelchair accessible</label>
-    <input type="checkbox"/>
+    <input type="checkbox" required />
   </div>
 
   <div>
     <label>is return</label>
-    <input type="checkbox"/>
+    <input type="checkbox" required />
   </div>
 
   <div>
     <label>year</label>
-    <input type="date"/>
+    <input type="date" required />
   </div>
 
   <div>
     <label>first permit number</label>
-    <input type="number"/>
+    <input type="number" required />
   </div>
 
   <div>
     <label>last permit number</label>
-    <input type="number"/>
+    <input type="number" required />
   </div>
 
   <div>
+    <!-- TODO Chosen plugin -->
     <label>lot</label>
     <select>
     </select>
   </div>
 
   <div>
+    <!-- TODO Chosen plugin -->
     <label>type</label>
     <select>
     </select>
   </div>
 
   <div>
+    <!-- TODO Chosen plugin -->
     <label>payment_type</label>
     <select>
     </select>
   </div>
 
   <div>
+    <!-- TODO Chosen plugin -->
     <label>sport</label>
     <select>
     </select>
   </div>
 
   <div>
-    <!-- TODO Autocomplete with 'add new' -->
+    <!-- TODO Chosen plugin -->
+    <!-- TODO Autocomplete with 'add new' a la youtube add to playlist -->
     <label>department</label>
-    <input type="text">
+    <select>
+    </select>
   </div>
 
   <div>
-    <!-- TODO Autocomplete with 'add new' -->
+    <!-- TODO Chosen plugin -->
+    <!-- TODO Autocomplete with 'add new', a la youtube add to playlist -->
     <label>contact</label>
-    <input type="text">
+    <select>
+    </select>
   </div>
 </form>
