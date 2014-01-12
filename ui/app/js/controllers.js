@@ -2,7 +2,7 @@
 
 /* Controllers */
 
-angular.module('myApp.controllers', [])
+angular.module('myApp.controllers', ['myApp.services'])
   .controller('InputFormController', function($scope) {
     $scope.parking_record = {
       number_of_permits: 0,
@@ -21,8 +21,8 @@ angular.module('myApp.controllers', [])
       person: 'Ashly!'
     };
   })
-  .controller('YearController', function($scope) {
-    $scope.min_year = 2007;
-    $scope.max_year = 2015;
+  .controller('YearController', function($scope, min_year, max_year) {
+    $scope.min_year = min_year;
+    $scope.max_year = max_year;
   })
   ;

@@ -2,10 +2,10 @@
 
 /* Services */
 
-
-// Demonstrate how to register services
-// In this case it is a simple value service.
-angular.module('myApp.services', []).
-  value('version', '0.1')
-  // TODO Year service (defines valid years)
+angular.module('myApp.services', [])
+  .value('version', '0.1')
+  // TODO Is the the correct way?
+  /* These are inclusive */
+  .value('min_year', '2007')
+  .value('max_year', '2015')
   ;
