@@ -8,4 +8,8 @@ angular.module('myApp.services', [])
   /* These are inclusive */
   .value('min_year', '2007')
   .value('max_year', '2015')
+  /* TODO distinguish between first_permit_number and last_permit_number? */
+  /* These are inclusive */
+  .value('min_permit_number', 0)
+  .value('max_permit_number', 1000)
   ;

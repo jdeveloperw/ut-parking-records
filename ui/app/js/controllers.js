@@ -25,4 +25,8 @@ angular.module('myApp.controllers', ['myApp.services'])
     $scope.min_year = min_year;
     $scope.max_year = max_year;
   })
+  .controller('PermitNumberController', function($scope, min_permit_number, max_permit_number) {
+    $scope.min_permit_number = min_permit_number;
+    $scope.max_permit_number = max_permit_number;
+  })
   ;

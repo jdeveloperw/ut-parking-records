@@ -66,4 +66,21 @@ angular.module('myApp.directives', ['myApp.services'])
       }
     };
   })
+  .directive('validPermitNumber', function(min_permit_number, max_permit_number) {
+    return {
+      require: 'ngModel',
+      link: function(scope, elm, attrs, ctrl) {
+        ctrl.$parsers.unshift(function(viewValue) {
+          var permit_number = parseInt(viewValue)
+          if (min_permit_number <= permit_number && permit_number <= max_permit_number) {
+            ctrl.$setValidity('validPermitNumber', true);
+            return viewValue;
+          } else {
+            ctrl.$setValidity('validPermitNumber', false);
+            return undefined;
+          }
+        });
+      }
+    };
+  })
   ;
