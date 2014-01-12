@@ -1,3 +1,15 @@
+copied from [angular-seed](https://github.com/angular/angular-seed)
+
+### Running the app during development
+
+You can pick one of these options:
+
+* serve this repository with your webserver
+* install node.js and run `scripts/web-server.js`
+
+Then navigate your browser to `http://localhost:<port>/app/index.html` to see the app running in
+your browser.
+
 # angular-seed — the seed for AngularJS apps
 
 This project is an application skeleton for a typical [AngularJS](http://angularjs.org/) web app.
@@ -22,17 +34,6 @@ etc to function properly when an html page is opened via `file://` scheme instea
 ## How to use angular-seed
 
 Clone the angular-seed repository and start hacking...
-
-
-### Running the app during development
-
-You can pick one of these options:
-
-* serve this repository with your webserver
-* install node.js and run `scripts/web-server.js`
-
-Then navigate your browser to `http://localhost:<port>/app/index.html` to see the app running in
-your browser.
 
 
 ### Running the app in production
