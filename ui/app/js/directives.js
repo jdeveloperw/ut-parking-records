@@ -99,4 +99,20 @@ angular.module('myApp.directives', ['myApp.services'])
       }
     };
   })
+  .directive('validType', function(Types) {
+    return {
+      require: 'ngModel',
+      link: function(scope, elm, attrs, ctrl) {
+        ctrl.$parsers.unshift(function(viewValue) {
+          if (_.contains(Types.all(), viewValue)) {
+            ctrl.$setValidity('validType', true);
+            return viewValue;
+          } else {
+            ctrl.$setValidity('validType', false);
+            return undefined;
+          }
+        });
+      }
+    };
+  })
   ;

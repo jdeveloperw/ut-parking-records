@@ -1,5 +1,6 @@
 <!-- TODO
 * Tooltips
+* Convert to camelCase
 -->
 <form class='css-form' data-ng-controller="InputFormController" novalidate>
   <!-- TODO should we be using html5 min/max? -->
@@ -54,17 +55,17 @@
     </select>
   </div>
 
-  <div>
+  <div data-ng-controller='TypeController'>
     <!-- TODO Chosen plugin -->
     <label>type</label>
-    <select>
+    <select data-ng-model='parking_record.type' data-ng-options='type for type in allTypes' required valid-type>
     </select>
   </div>
 
-  <div>
+  <div data-ng-controller='PaymentTypeController'>
     <!-- TODO Chosen plugin -->
-    <label>payment_type</label>
-    <select>
+    <label>payment type</label>
+    <select data-ng-model='parking_record.payment_type' data-ng-options='paymentType for paymentType in allPaymentTypes' required valid-payment-type>
     </select>
   </div>
 

@@ -17,4 +17,10 @@ angular.module('myApp.controllers', ['myApp.services'])
   .controller('LotController', function($scope, Lots) {
     $scope.allLots = Lots.all();
   })
+  .controller('TypeController', function($scope, Types) {
+    $scope.allTypes = Types.all();
+  })
+  .controller('PaymentTypeController', function($scope, PaymentTypes) {
+    $scope.allPaymentTypes = PaymentTypes.all();
+  })
   ;

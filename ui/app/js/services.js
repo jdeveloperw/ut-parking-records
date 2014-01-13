@@ -9,6 +9,20 @@ var Lots = {
 }
 
 
+var Types = {
+  all: function() {
+    return ['this', 'that', 'the other'];
+  }
+}
+
+
+var PaymentTypes = {
+  all: function() {
+    return ['cash', 'check', 'card', 'chicken'];
+  }
+}
+
+
 var ParkingRecords = {
   new: function() {
     return {
@@ -21,8 +35,8 @@ var ParkingRecords = {
       first_permit_number: 0,
       last_permit_number: 0,
       lot: 'CG',
-      type: 123,
-      payment_type: 123,
+      type: 'this',
+      payment_type: 'chicken',
       sport: 'football!',
       department: 'nuclear engineering',
       person: 'Ashly!'
@@ -33,7 +47,6 @@ var ParkingRecords = {
 
 angular.module('myApp.services', [])
   .value('version', '0.1')
-  // TODO Is the the correct way?
   /* These are inclusive */
   .value('min_year', '2007')
   .value('max_year', '2015')
@@ -46,5 +59,11 @@ angular.module('myApp.services', [])
   })
   .service('ParkingRecords', function() {
     return ParkingRecords;
+  })
+  .service('Types', function() {
+    return Types;
+  })
+  .service('PaymentTypes', function() {
+    return PaymentTypes;
   })
   ;
