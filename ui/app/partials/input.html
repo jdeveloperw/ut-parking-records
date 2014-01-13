@@ -14,12 +14,12 @@
   </div>
 
   <div>
-    <label>is handicapped</label>
+    <label>handicapped</label>
     <input type="checkbox" required />
   </div>
 
   <div>
-    <label>is wheelchair accessible</label>
+    <label>wheelchair accessible</label>
     <input type="checkbox" required />
   </div>
 
@@ -47,10 +47,10 @@
     <input type="number" min='{{ min_permit_number }}' max='{{ max_permit_number }}' data-ng-model='parking_record.last_permit_number' required valid-permit-number />
   </div>
 
-  <div>
+  <div data-ng-controller='LotController'>
     <!-- TODO Chosen plugin -->
     <label>lot</label>
-    <select>
+    <select data-ng-model='parking_record.lot' data-ng-options='lot for lot in allLots' required valid-lot>
     </select>
   </div>
 

@@ -12,4 +12,11 @@ angular.module('myApp.services', [])
   /* These are inclusive */
   .value('min_permit_number', 0)
   .value('max_permit_number', 1000)
+  .service('Lots', function() {
+    return {
+      all: function() {
+        return [ 'AA', 'CG', 'GT' ];
+      }
+    }
+  })
   ;

@@ -13,7 +13,7 @@ angular.module('myApp.controllers', ['myApp.services'])
       year: 2007,
       first_permit_number: 0,
       last_permit_number: 0,
-      lot: 123,
+      lot: 'CG',
       type: 123,
       payment_type: 123,
       sport: 'football!',
@@ -28,5 +28,8 @@ angular.module('myApp.controllers', ['myApp.services'])
   .controller('PermitNumberController', function($scope, min_permit_number, max_permit_number) {
     $scope.min_permit_number = min_permit_number;
     $scope.max_permit_number = max_permit_number;
+  })
+  .controller('LotController', function($scope, Lots) {
+    $scope.allLots = Lots.all();
   })
   ;

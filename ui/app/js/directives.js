@@ -83,4 +83,20 @@ angular.module('myApp.directives', ['myApp.services'])
       }
     };
   })
+  .directive('validLot', function(Lots) {
+    return {
+      require: 'ngModel',
+      link: function(scope, elm, attrs, ctrl) {
+        ctrl.$parsers.unshift(function(viewValue) {
+          if (_.contains(Lots.all(), viewValue)) {
+            ctrl.$setValidity('validLot', true);
+            return viewValue;
+          } else {
+            ctrl.$setValidity('validLot', false);
+            return undefined;
+          }
+        });
+      }
+    };
+  })
   ;
