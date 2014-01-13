@@ -23,4 +23,10 @@ angular.module('myApp.controllers', ['myApp.services'])
   .controller('PaymentTypeController', function($scope, PaymentTypes) {
     $scope.allPaymentTypes = PaymentTypes.all();
   })
+  .controller('SportController', function($scope, Sports) {
+    $scope.allSports = Sports.all();
+  })
+  .controller('DepartmentController', function($scope, Departments) {
+    $scope.allDepartments = Departments.all();
+  })
   ;

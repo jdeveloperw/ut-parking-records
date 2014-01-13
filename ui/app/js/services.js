@@ -23,6 +23,20 @@ var PaymentTypes = {
 }
 
 
+var Sports = {
+  all: function() {
+    return ['football', 'basketball', 'lady vols', 'luge'];
+  }
+}
+
+
+var Departments = {
+  all: function() {
+    return ['nuclear engineering', 'EECS', 'BOS'];
+  }
+}
+
+
 var ParkingRecords = {
   new: function() {
     return {
@@ -37,7 +51,7 @@ var ParkingRecords = {
       lot: 'CG',
       type: 'this',
       payment_type: 'chicken',
-      sport: 'football!',
+      sport: 'football',
       department: 'nuclear engineering',
       person: 'Ashly!'
     }
@@ -54,16 +68,22 @@ angular.module('myApp.services', [])
   /* These are inclusive */
   .value('min_permit_number', 0)
   .value('max_permit_number', 1000)
-  .service('Lots', function() {
-    return Lots;
-  })
   .service('ParkingRecords', function() {
     return ParkingRecords;
+  })
+  .service('Lots', function() {
+    return Lots;
   })
   .service('Types', function() {
     return Types;
   })
   .service('PaymentTypes', function() {
     return PaymentTypes;
+  })
+  .service('Sports', function() {
+    return Sports;
+  })
+  .service('Departments', function() {
+    return Departments;
   })
   ;

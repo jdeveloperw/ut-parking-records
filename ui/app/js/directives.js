@@ -115,4 +115,52 @@ angular.module('myApp.directives', ['myApp.services'])
       }
     };
   })
+  .directive('validPaymentType', function(PaymentTypes) {
+    return {
+      require: 'ngModel',
+      link: function(scope, elm, attrs, ctrl) {
+        ctrl.$parsers.unshift(function(viewValue) {
+          if (_.contains(PaymentTypes.all(), viewValue)) {
+            ctrl.$setValidity('validPaymentType', true);
+            return viewValue;
+          } else {
+            ctrl.$setValidity('validPaymentType', false);
+            return undefined;
+          }
+        });
+      }
+    };
+  })
+  .directive('validSport', function(Sports) {
+    return {
+      require: 'ngModel',
+      link: function(scope, elm, attrs, ctrl) {
+        ctrl.$parsers.unshift(function(viewValue) {
+          if (_.contains(Sports.all(), viewValue)) {
+            ctrl.$setValidity('validSport', true);
+            return viewValue;
+          } else {
+            ctrl.$setValidity('validSport', false);
+            return undefined;
+          }
+        });
+      }
+    };
+  })
+  .directive('validDepartment', function(Departments) {
+    return {
+      require: 'ngModel',
+      link: function(scope, elm, attrs, ctrl) {
+        ctrl.$parsers.unshift(function(viewValue) {
+          if (_.contains(Departments.all(), viewValue)) {
+            ctrl.$setValidity('validDepartment', true);
+            return viewValue;
+          } else {
+            ctrl.$setValidity('validDepartment', false);
+            return undefined;
+          }
+        });
+      }
+    };
+  })
   ;

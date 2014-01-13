@@ -69,18 +69,18 @@
     </select>
   </div>
 
-  <div>
+  <div data-ng-controller='SportController'>
     <!-- TODO Chosen plugin -->
     <label>sport</label>
-    <select>
+    <select data-ng-model='parking_record.sport' data-ng-options='sport for sport in allSports' required valid-sport>
     </select>
   </div>
 
-  <div>
+  <div data-ng-controller='DepartmentController'>
     <!-- TODO Chosen plugin -->
     <!-- TODO Autocomplete with 'add new' a la youtube add to playlist -->
     <label>department</label>
-    <select>
+    <select data-ng-model='parking_record.department' data-ng-options='department for department in allDepartments' required valid-department>
     </select>
   </div>
 
