@@ -33,8 +33,11 @@
     // load all of the dependencies asynchronously.
     $script([
       'lib/underscore.js',
+      'lib/jquery/jquery-2.0.3.js',
+      'lib/jquery/chosen.jquery.js',
       'lib/angular/angular.js',
       'lib/angular/angular-route.js',
+      'lib/angular/angular-chosen.js',
       'js/app.js',
       'js/services.js',
       'js/controllers.js',
@@ -47,6 +50,8 @@
   </script>
   <title>My AngularJS App</title>
   <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="lib/jquery/chosen.css">
+  <link rel="stylesheet" href="css/chosen-spinner.css">
 </head>
 <body ng-cloak>
   <div ng-include="'partials/input.html'"></div>
