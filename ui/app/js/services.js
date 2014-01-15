@@ -1,6 +1,7 @@
 'use strict';
 
 /* Services */
+/* TODO API equivalent of ORM */
 
 var Lots = {
   all: function() {
