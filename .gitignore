@@ -3,3 +3,5 @@
 .idea
 .*.sw*
 .sw*
+
+/ui/node_modules/
