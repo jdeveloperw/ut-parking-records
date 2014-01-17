@@ -51,4 +51,34 @@ describe('directives', function() {
       expect(form.somenum.$valid).toBe(false);
     });
   });
+
+  describe('valid-year', function() {
+    var $scope, form;
+
+    beforeEach(inject(function($compile, $rootScope) {
+      $scope = $rootScope;
+      var element = angular.element(
+        '<form name="form">' +
+          '<input ng-model="model.somenum" name="somenum" valid-year />' +
+        '</form>'
+      );
+      $scope.model = { somenum: null }
+      $compile(element)($scope);
+      $scope.$digest();
+      form = $scope.form;
+    }));
+
+    /*
+    it('should not pass with string', function() {
+      inject(function($provide) {
+        $provide.value('minYear', 2000);
+        $provide.value('maxYear', 2010);
+      }));
+
+      form.somenum.$setViewValue('a');
+      expect($scope.model.somenum).toBeUndefined();
+      expect(form.somenum.$valid).toBe(false);
+    });
+    */
+  });
 });

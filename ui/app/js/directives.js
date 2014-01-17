@@ -6,60 +6,42 @@ var INTEGER_REGEXP = /^\-?\d+$/;
 var NON_NEGATIVE_INTEGER_REGEXP = /^\d+$/;
 var POSITIVE_INTEGER = /^[1..9]\d*$/;
 
+var createValidator = function(directiveName, isValid) {
+  return {
+    require: 'ngModel',
+    link: function(scope, elm, attrs, ctrl) {
+      ctrl.$parsers.unshift(function(viewValue) {
+        if (isValid(viewValue)) {
+          ctrl.$setValidity(directiveName, true);
+          return viewValue;
+        } else {
+          ctrl.$setValidity(directiveName, false);
+          return undefined;
+        }
+      });
+    }
+  };
+}
+
+var createRexExpValidator = function(directiveName, regexp) {
+  return createValidator(directiveName, function(viewValue) {
+      return regexp.test(viewValue);
+  });
+}
+
 angular.module('myApp.directives', ['myApp.services'])
   /* TODO DRY */
   .directive('nonNegativeInteger', function() {
-    return {
-      require: 'ngModel',
-      link: function(scope, elm, attrs, ctrl) {
-        ctrl.$parsers.unshift(function(viewValue) {
-          if (NON_NEGATIVE_INTEGER_REGEXP.test(viewValue)) {
-            // it is valid
-            ctrl.$setValidity('nonNegativeInteger', true);
-            return viewValue;
-          } else {
-            // it is invalid, return undefined (no model update)
-            ctrl.$setValidity('nonNegativeInteger', false);
-            return undefined;
-          }
-        });
-      }
-    };
+    return createRexExpValidator('nonNegativeInteger', NON_NEGATIVE_INTEGER_REGEXP);
   })
   .directive('positiveInteger', function() {
-    return {
-      require: 'ngModel',
-      link: function(scope, elm, attrs, ctrl) {
-        ctrl.$parsers.unshift(function(viewValue) {
-          if (POSITIVE_INTEGER.test(viewValue)) {
-            // it is valid
-            ctrl.$setValidity('positiveInteger', true);
-            return viewValue;
-          } else {
-            // it is invalid, return undefined (no model update)
-            ctrl.$setValidity('positiveInteger', false);
-            return undefined;
-          }
-        });
-      }
-    };
+    return createRexExpValidator('positiveInteger', POSITIVE_INTEGER);
   })
   .directive('validYear', function(min_year, max_year) {
-    return {
-      require: 'ngModel',
-      link: function(scope, elm, attrs, ctrl) {
-        ctrl.$parsers.unshift(function(viewValue) {
-          var year = parseInt(viewValue)
-          if (min_year <= year && year <= max_year) {
-            ctrl.$setValidity('validYear', true);
-            return viewValue;
-          } else {
-            ctrl.$setValidity('validYear', false);
-            return undefined;
-          }
-        });
-      }
-    };
+    return createValidator('validYear', function(viewValue) {
+      var year = parseInt(viewValue)
+      return min_year <= year && year <= max_year;
+    })
   })
   .directive('validPermitNumber', function(min_permit_number, max_permit_number) {
     return {
