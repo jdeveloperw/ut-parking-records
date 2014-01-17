@@ -54,6 +54,13 @@ describe('directives', function() {
 
   describe('valid-year', function() {
     var $scope, form;
+    var minYear = 2000;
+    var maxYear = 2010;
+
+    beforeEach(module('myApp.services', function($provide) {
+      $provide.value('minYear', minYear);
+      $provide.value('maxYear', maxYear);
+    }));
 
     beforeEach(inject(function($compile, $rootScope) {
       $scope = $rootScope;
@@ -68,17 +75,47 @@ describe('directives', function() {
       form = $scope.form;
     }));
 
-    /*
-    it('should not pass with string', function() {
-      inject(function($provide) {
-        $provide.value('minYear', 2000);
-        $provide.value('maxYear', 2010);
-      }));
+    it('should not pass with a float', function() {
+      form.somenum.$setViewValue(1.0);
+      expect($scope.model.somenum).toBeUndefined();
+      expect(form.somenum.$valid).toBe(false);
+    });
 
+    it('should not pass with string', function() {
       form.somenum.$setViewValue('a');
       expect($scope.model.somenum).toBeUndefined();
       expect(form.somenum.$valid).toBe(false);
     });
-    */
+
+    it('should not pass with an integer less than min year', function() {
+      form.somenum.$setViewValue(minYear - 1);
+      expect($scope.model.somenum).toBeUndefined();
+      expect(form.somenum.$valid).toBe(false);
+    });
+
+    it('should not pass with an integer greater than max year', function() {
+      form.somenum.$setViewValue(maxYear + 1);
+      expect($scope.model.somenum).toBeUndefined();
+      expect(form.somenum.$valid).toBe(false);
+    });
+
+    it('should pass with an integer equal to min year', function() {
+      form.somenum.$setViewValue(minYear);
+      expect($scope.model.somenum).toEqual(minYear);
+      expect(form.somenum.$valid).toBe(true);
+    });
+
+    it('should pass with an integer equal to max year', function() {
+      form.somenum.$setViewValue(maxYear);
+      expect($scope.model.somenum).toEqual(maxYear);
+      expect(form.somenum.$valid).toBe(true);
+    });
+
+    it('should pass with an integer between min year and max year', function() {
+      var year = minYear + 1;
+      form.somenum.$setViewValue(year);
+      expect($scope.model.somenum).toEqual(year);
+      expect(form.somenum.$valid).toBe(true);
+    });
   });
 });

@@ -37,10 +37,10 @@ angular.module('myApp.directives', ['myApp.services'])
   .directive('positiveInteger', function() {
     return createRexExpValidator('positiveInteger', POSITIVE_INTEGER);
   })
-  .directive('validYear', function(min_year, max_year) {
+  .directive('validYear', function(minYear, maxYear) {
     return createValidator('validYear', function(viewValue) {
       var year = parseInt(viewValue)
-      return min_year <= year && year <= max_year;
+      return minYear <= year && year <= maxYear;
     })
   })
   .directive('validPermitNumber', function(min_permit_number, max_permit_number) {
