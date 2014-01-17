@@ -7,11 +7,6 @@ var NON_NEGATIVE_INTEGER_REGEXP = /^\d+$/;
 var POSITIVE_INTEGER = /^[1..9]\d*$/;
 
 angular.module('myApp.directives', ['myApp.services'])
-  .directive('appVersion', ['version', function(version) {
-    return function(scope, elm, attrs) {
-      elm.text(version);
-    };
-  }])
   /* TODO DRY */
   .directive('nonNegativeInteger', function() {
     return {
@@ -36,7 +31,7 @@ angular.module('myApp.directives', ['myApp.services'])
       require: 'ngModel',
       link: function(scope, elm, attrs, ctrl) {
         ctrl.$parsers.unshift(function(viewValue) {
-          if (NON_NEGATIVE_INTEGER_REGEXP.test(viewValue)) {
+          if (POSITIVE_INTEGER.test(viewValue)) {
             // it is valid
             ctrl.$setValidity('positiveInteger', true);
             return viewValue;
