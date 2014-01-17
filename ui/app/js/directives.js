@@ -36,6 +36,7 @@ var IntegerRangeValidator = function(directiveName, minValue, maxValue) {
   });
 };
 
+/* TODO is the correct way to use _ ? */
 var ContainmentValidator = function(directiveName, getContainer) {
   return Validator(directiveName, function(viewValue) {
     return _.contains(getContainer(), viewValue);

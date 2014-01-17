@@ -119,7 +119,6 @@ describe('directives', function() {
     });
   });
 
-  /*
   describe('valid-permit-number', function() {
     var $scope, form;
     var lots = ['a','b','c'];
@@ -146,11 +145,17 @@ describe('directives', function() {
       form = $scope.form;
     }));
 
-    it('should not pass with a value not in list', function() {
+    it('should not pass with a value not in the list', function() {
       form.somenum.$setViewValue(1.0);
       expect($scope.model.somenum).toBeUndefined();
       expect(form.somenum.$valid).toBe(false);
     });
+
+    it('should pass with a value in the list', function() {
+      var value = 'a';
+      form.somenum.$setViewValue(value);
+      expect($scope.model.somenum).toEqual(value);
+      expect(form.somenum.$valid).toBe(true);
+    });
   });
-  */
 });

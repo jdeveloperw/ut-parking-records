@@ -3,9 +3,9 @@ module.exports = function(config){
     basePath : '../',
 
     files : [
+      'app/lib/underscore.js',
       'app/lib/angular/angular.js',
       'app/lib/angular/angular-*.js',
-      //'app/lib/underscore.js',
       'test/lib/angular/angular-mocks.js',
       'app/js/**/*.js',
       'test/unit/**/*.js'
