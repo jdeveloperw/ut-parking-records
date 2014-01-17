@@ -5,6 +5,7 @@
 angular.module('myApp', [
   'ngRoute',
   'localytics.directives',
+  //'angular-underscore',
   'myApp.filters',
   'myApp.services',
   'myApp.directives',

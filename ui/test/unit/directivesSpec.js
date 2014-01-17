@@ -118,4 +118,39 @@ describe('directives', function() {
       expect(form.somenum.$valid).toBe(true);
     });
   });
+
+  /*
+  describe('valid-permit-number', function() {
+    var $scope, form;
+    var lots = ['a','b','c'];
+
+    beforeEach(module('myApp.services', function($provide) {
+      $provide.value('Lots', {
+        all: function() {
+          return lots;
+        }
+      });
+    }));
+
+    beforeEach(inject(function($compile, $rootScope) {
+      $scope = $rootScope;
+      var element = angular.element(
+        '<form name="form">' +
+          '<select ng-model="model.somenum" name="somenum" valid-lot></select>' +
+        '</form>'
+      );
+
+      $scope.model = { somenum: null }
+      $compile(element)($scope);
+      $scope.$digest();
+      form = $scope.form;
+    }));
+
+    it('should not pass with a value not in list', function() {
+      form.somenum.$setViewValue(1.0);
+      expect($scope.model.somenum).toBeUndefined();
+      expect(form.somenum.$valid).toBe(false);
+    });
+  });
+  */
 });
