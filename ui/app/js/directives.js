@@ -48,15 +48,41 @@ var ContainmentValidator = function(directiveName, getContainer) {
 };
 
 angular.module('myApp.directives', ['myApp.services'])
-  .directive('validateRegexp', function() {
+  .directive('matchRegexp', function() {
     return {
       require: 'ngModel',
       restrict: 'A',
       scope: {
-        regexp: '='
+        regexp: '=matchRegexp'
       },
-      link: createValidatorLink('validateRegexp', function(viewValue, scope) {
+      link: createValidatorLink('matchRegexp', function(viewValue, scope) {
           return RegExp(scope.regexp).test(viewValue);
+      })
+    };
+  })
+  .directive('inContainer', function() {
+    return {
+      require: 'ngModel',
+      restrict: 'A',
+      scope: {
+        container: '=inContainer'
+      },
+      link: createValidatorLink('inContainer', function(viewValue, scope) {
+          return _.contains(scope.container, viewValue);
+      })
+    };
+  })
+  .directive('withinIntegerRange', function() {
+    return {
+      require: 'ngModel',
+      restrict: 'A',
+      scope: {
+        min: '=',
+        max: '='
+      },
+      link: createValidatorLink('withinIntegerRange', function(viewValue, scope) {
+          var value = parseInt(viewValue)
+          return scope.min <= value && value <= scope.max;
       })
     };
   })
