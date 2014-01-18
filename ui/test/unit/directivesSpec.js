@@ -158,4 +158,36 @@ describe('directives', function() {
       expect(form.somenum.$valid).toBe(true);
     });
   });
+
+  describe('valid-regexp', function() {
+    var $scope, form;
+
+    beforeEach(inject(function($compile, $rootScope) {
+      $scope = $rootScope;
+      var element = angular.element(
+        '<form name="form">' +
+          '<input ng-model="model.somenum" name="somenum" regexp="\'^a$\'" validate-regexp />' +
+        '</form>'
+      );
+
+      $scope.model = { somenum: null }
+      $compile(element)($scope);
+      $scope.$digest();
+      form = $scope.form;
+    }));
+
+    it('should pass with "a"', function() {
+      var value = 'a';
+      form.somenum.$setViewValue(value);
+      expect($scope.model.somenum).toEqual(value);
+      expect(form.somenum.$valid).toBe(true);
+    });
+
+    it('should not pass with "b"', function() {
+      var value = 'b';
+      form.somenum.$setViewValue(value);
+      expect($scope.model.somenum).toBeUndefined();
+      expect(form.somenum.$valid).toBe(false);
+    });
+  });
 });

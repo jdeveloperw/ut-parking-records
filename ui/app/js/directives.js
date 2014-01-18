@@ -6,20 +6,24 @@ var INTEGER_REGEXP = /^\-?\d+$/;
 var NON_NEGATIVE_INTEGER_REGEXP = /^\d+$/;
 var POSITIVE_INTEGER = /^[1..9]\d*$/;
 
+var createValidatorLink = function(directiveName, isValid) {
+  return function(scope, elm, attrs, ctrl) {
+    ctrl.$parsers.unshift(function(viewValue) {
+      if (isValid(viewValue, scope)) {
+        ctrl.$setValidity(directiveName, true);
+        return viewValue;
+      } else {
+        ctrl.$setValidity(directiveName, false);
+        return undefined;
+      }
+    });
+  }
+}
+
 var Validator = function(directiveName, isValid) {
   return {
     require: 'ngModel',
-    link: function(scope, elm, attrs, ctrl) {
-      ctrl.$parsers.unshift(function(viewValue) {
-        if (isValid(viewValue)) {
-          ctrl.$setValidity(directiveName, true);
-          return viewValue;
-        } else {
-          ctrl.$setValidity(directiveName, false);
-          return undefined;
-        }
-      });
-    }
+    link: createValidatorLink(directiveName, isValid)
   };
 };
 
@@ -44,6 +48,18 @@ var ContainmentValidator = function(directiveName, getContainer) {
 };
 
 angular.module('myApp.directives', ['myApp.services'])
+  .directive('validateRegexp', function() {
+    return {
+      require: 'ngModel',
+      restrict: 'A',
+      scope: {
+        regexp: '='
+      },
+      link: createValidatorLink('validateRegexp', function(viewValue, scope) {
+          return RegExp(scope.regexp).test(viewValue);
+      })
+    };
+  })
   .directive('nonNegativeInteger', function() {
     return RegExpValidator('nonNegativeInteger', NON_NEGATIVE_INTEGER_REGEXP);
   })
