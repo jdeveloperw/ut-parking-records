@@ -36,7 +36,7 @@ angular.module('myApp.directives', ['myApp.services'])
       require: 'ngModel',
       restrict: 'A',
       scope: {
-        container: '=inContainer'
+        container: '=inContainer',
       },
       link: createValidatorLink('inContainer', function(viewValue, scope) {
           return _.contains(scope.container, viewValue);
