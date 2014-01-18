@@ -63,12 +63,12 @@ var ParkingRecords = {
 angular.module('myApp.services', [])
   .value('version', '0.1')
   /* These are inclusive */
-  .value('min_year', '2007')
-  .value('max_year', '2015')
+  .value('minYear', '2007')
+  .value('maxYear', '2015')
   /* TODO distinguish between first_permit_number and last_permit_number? */
   /* These are inclusive */
-  .value('min_permit_number', 0)
-  .value('max_permit_number', 1000)
+  .value('minPermitNumber', 0)
+  .value('maxPermitNumber', 1000)
   .service('ParkingRecords', function() {
     return ParkingRecords;
   })

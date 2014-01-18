@@ -27,19 +27,6 @@ var Validator = function(directiveName, isValid) {
   };
 };
 
-var RegExpValidator = function(directiveName, regexp) {
-  return Validator(directiveName, function(viewValue) {
-      return regexp.test(viewValue);
-  });
-};
-
-var IntegerRangeValidator = function(directiveName, minValue, maxValue) {
-  return Validator(directiveName, function(viewValue) {
-    var value = parseInt(viewValue)
-    return minValue <= value && value <= maxValue;
-  });
-};
-
 /* TODO is the correct way to use _ ? */
 var ContainmentValidator = function(directiveName, getContainer) {
   return Validator(directiveName, function(viewValue) {
@@ -48,18 +35,6 @@ var ContainmentValidator = function(directiveName, getContainer) {
 };
 
 angular.module('myApp.directives', ['myApp.services'])
-  .directive('matchRegexp', function() {
-    return {
-      require: 'ngModel',
-      restrict: 'A',
-      scope: {
-        regexp: '=matchRegexp'
-      },
-      link: createValidatorLink('matchRegexp', function(viewValue, scope) {
-          return RegExp(scope.regexp).test(viewValue);
-      })
-    };
-  })
   .directive('inContainer', function() {
     return {
       require: 'ngModel',
@@ -72,25 +47,11 @@ angular.module('myApp.directives', ['myApp.services'])
       })
     };
   })
-  .directive('withinIntegerRange', function() {
-    return {
-      require: 'ngModel',
-      restrict: 'A',
-      scope: {
-        min: '=',
-        max: '='
-      },
-      link: createValidatorLink('withinIntegerRange', function(viewValue, scope) {
-          var value = parseInt(viewValue)
-          return scope.min <= value && value <= scope.max;
-      })
-    };
-  })
   .directive('nonNegativeInteger', function() {
     return RegExpValidator('nonNegativeInteger', NON_NEGATIVE_INTEGER_REGEXP);
   })
   .directive('positiveInteger', function() {
-    return RexExpValidator('positiveInteger', POSITIVE_INTEGER);
+    return RegExpValidator('positiveInteger', POSITIVE_INTEGER);
   })
   .directive('validYear', function(minYear, maxYear) {
     return IntegerRangeValidator('validYear', minYear, maxYear);

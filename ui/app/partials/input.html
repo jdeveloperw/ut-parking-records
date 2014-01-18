@@ -32,7 +32,7 @@
   <!-- TODO should we be using html5 min/max? -->
   <div data-ng-controller='YearController'>
     <label>year</label>
-    <input type="number" min='{{ min_year }}' max='{{ max_year }}' data-ng-model='parking_record.year' valid-year required />
+    <input type="number" min='{{minYear}}' max='{{maxYear}}' data-ng-model='parking_record.year' required />
   </div>
 
   <!-- TODO can first_permit_number = last_permit_number? -->
@@ -40,12 +40,12 @@
 
   <div data-ng-controller='PermitNumberController'>
     <label>first permit number</label>
-    <input type="number" min='{{ min_permit_number }}' max='{{ max_permit_number }}' data-ng-model='parking_record.first_permit_number' required valid-permit-number />
+    <input type="number" min='{{minPermitNumber}}' max='{{maxPermitNumber}}' data-ng-model='parking_record.first_permit_number' required />
   </div>
 
   <div data-ng-controller='PermitNumberController'>
     <label>last permit number</label>
-    <input type="number" min='{{ min_permit_number }}' max='{{ max_permit_number }}' data-ng-model='parking_record.last_permit_number' required valid-permit-number />
+    <input type="number" min='{{minPermitNumber}}' max='{{maxPermitNumber}}' data-ng-model='parking_record.last_permit_number' required />
   </div>
 
   <div data-ng-controller='LotController'>
