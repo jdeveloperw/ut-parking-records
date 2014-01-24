@@ -3,41 +3,25 @@
 * Convert to camelCase
 -->
 <form class='css-form'
+      role='form'
       data-ng-controller="InputFormController"
       novalidate>
       
-  <div>
+  <div class='form-group'>
     <label>number of permits</label>
     <input type='number'
+           class='form-control'
            min='1'
            data-ng-model='parkingRecord.number_of_permits'
            required />
   </div>
 
-  <div>
-    <label>has placard</label>
-    <input type="checkbox" required />
-  </div>
-
-  <div>
-    <label>handicapped</label>
-    <input type="checkbox" required />
-  </div>
-
-  <div>
-    <label>wheelchair accessible</label>
-    <input type="checkbox" required />
-  </div>
-
-  <div>
-    <label>is return</label>
-    <input type="checkbox" required />
-  </div>
-
   <!-- TODO should we be using html5 min/max? -->
-  <div data-ng-controller='YearController'>
+  <div class='form-group'
+       data-ng-controller='YearController'>
     <label>year</label>
     <input type='number'
+           class='form-control'
            min='{{minYear}}'
            max='{{maxYear}}'
            data-ng-model='parkingRecord.year'
@@ -47,28 +31,34 @@
   <!-- TODO can first_permit_number = last_permit_number? -->
   <!-- TODO How to validate first_permit_number <= last_permit_nubmer -->
 
-  <div data-ng-controller='PermitNumberController'>
+  <div class='form-group'
+       data-ng-controller='PermitNumberController'>
     <label>first permit number</label>
     <input type='number'
+           class='form-control'
            min='{{minPermitNumber}}'
            max='{{maxPermitNumber}}'
            data-ng-model='parkingRecord.first_permit_number'
            required />
   </div>
 
-  <div data-ng-controller='PermitNumberController'>
+  <div class='form-group'
+       data-ng-controller='PermitNumberController'>
     <label>last permit number</label>
     <input type="number"
+           class='form-control'
            min='{{minPermitNumber}}'
            max='{{maxPermitNumber}}'
            data-ng-model='parkingRecord.last_permit_number'
            required />
   </div>
 
-  <div data-ng-controller='LotController'>
+  <div class='form-group'
+       data-ng-controller='LotController'>
     <!-- TODO Chosen plugin -->
     <label>lot</label>
     <select chosen
+            class='form-control'
             data-ng-model='parkingRecord.lot'
             data-ng-options='lot for lot in allLots'
             data-in-container='allLots'
@@ -76,9 +66,11 @@
     </select>
   </div>
 
-  <div data-ng-controller='TypeController'>
+  <div class='form-group'
+       data-ng-controller='TypeController'>
     <label>type</label>
     <select chosen
+            class='form-control'
             data-ng-model='parkingRecord.type'
             data-ng-options='type for type in allTypes'
             data-in-container='allTypes'
@@ -86,9 +78,11 @@
     </select>
   </div>
 
-  <div data-ng-controller='PaymentTypeController'>
+  <div class='form-group'
+       data-ng-controller='PaymentTypeController'>
     <label>payment type</label>
     <select chosen
+            class='form-control'
             data-ng-model='parkingRecord.payment_type'
             data-ng-options='paymentType for paymentType in allPaymentTypes'
             data-in-container='allPaymentTypes'
@@ -96,9 +90,11 @@
     </select>
   </div>
 
-  <div data-ng-controller='SportController'>
+  <div class='form-group'
+       data-ng-controller='SportController'>
     <label>sport</label>
     <select chosen
+            class='form-control'
             data-ng-model='parkingRecord.sport'
             data-ng-options='sport for sport in allSports'
             data-in-container='allSports'
@@ -106,10 +102,12 @@
     </select>
   </div>
 
-  <div data-ng-controller='DepartmentController'>
+  <div class='form-group'
+       data-ng-controller='DepartmentController'>
     <!-- TODO Autocomplete with 'add new' a la youtube add to playlist -->
     <label>department</label>
     <select chosen
+            class='form-control'
             data-ng-model='parkingRecord.department'
             data-ng-options='department for department in allDepartments'
             data-in-container='allDepartments'
@@ -117,10 +115,32 @@
     </select>
   </div>
 
-  <div>
+  <div class='form-group'>
     <!-- TODO Autocomplete with 'add new', a la youtube add to playlist -->
     <label>contact</label>
-    <select>
+    <select chosen
+            class='form-control'
+            required>
     </select>
+  </div>
+
+  <div class='form-group'>
+    <input type="checkbox" required />
+    <label>has placard</label>
+  </div>
+
+  <div class='form-group'>
+    <input type="checkbox" required />
+    <label>handicapped</label>
+  </div>
+
+  <div class='form-group'>
+    <input type="checkbox" required />
+    <label>wheelchair accessible</label>
+  </div>
+
+  <div class='form-group'>
+    <input type="checkbox" required />
+    <label>is return</label>
   </div>
 </form>
