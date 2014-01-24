@@ -2,30 +2,38 @@
 * Tooltips
 * Convert to camelCase
 -->
-<form class='css-form'
+<form class='css-form form-horizontal'
       role='form'
       data-ng-controller="InputFormController"
       novalidate>
       
   <div class='form-group'>
-    <label>number of permits</label>
-    <input type='number'
-           class='form-control'
-           min='1'
-           data-ng-model='parkingRecord.number_of_permits'
-           required />
+    <label class='col-sm-2 control-label'>
+      number of permits
+    </label>
+    <div class="col-sm-10">
+      <input type='number'
+             class='form-control'
+             min='1'
+             data-ng-model='parkingRecord.number_of_permits'
+             required />
+    </div>
   </div>
 
   <!-- TODO should we be using html5 min/max? -->
   <div class='form-group'
        data-ng-controller='YearController'>
-    <label>year</label>
-    <input type='number'
-           class='form-control'
-           min='{{minYear}}'
-           max='{{maxYear}}'
-           data-ng-model='parkingRecord.year'
-           required />
+    <label class='col-sm-2 control-label'>
+      year
+    </label>
+    <div class="col-sm-10">
+      <input type='number'
+             class='form-control'
+             min='{{minYear}}'
+             max='{{maxYear}}'
+             data-ng-model='parkingRecord.year'
+             required />
+    </div>
   </div>
 
   <!-- TODO can first_permit_number = last_permit_number? -->
@@ -33,114 +41,166 @@
 
   <div class='form-group'
        data-ng-controller='PermitNumberController'>
-    <label>first permit number</label>
-    <input type='number'
-           class='form-control'
-           min='{{minPermitNumber}}'
-           max='{{maxPermitNumber}}'
-           data-ng-model='parkingRecord.first_permit_number'
-           required />
+    <label class='col-sm-2 control-label'>
+      first permit number
+    </label>
+    <div class="col-sm-10">
+      <input type='number'
+             class='form-control'
+             min='{{minPermitNumber}}'
+             max='{{maxPermitNumber}}'
+             data-ng-model='parkingRecord.first_permit_number'
+             required />
+    </div>
   </div>
 
   <div class='form-group'
        data-ng-controller='PermitNumberController'>
-    <label>last permit number</label>
-    <input type="number"
-           class='form-control'
-           min='{{minPermitNumber}}'
-           max='{{maxPermitNumber}}'
-           data-ng-model='parkingRecord.last_permit_number'
-           required />
+    <label class='col-sm-2 control-label'>
+      last permit number
+    </label>
+    <div class="col-sm-10">
+      <input type="number"
+             class='form-control'
+             min='{{minPermitNumber}}'
+             max='{{maxPermitNumber}}'
+             data-ng-model='parkingRecord.last_permit_number'
+             required />
+    </div>
   </div>
 
   <div class='form-group'
        data-ng-controller='LotController'>
     <!-- TODO Chosen plugin -->
-    <label>lot</label>
-    <select chosen
-            class='form-control'
-            data-ng-model='parkingRecord.lot'
-            data-ng-options='lot for lot in allLots'
-            data-in-container='allLots'
-            required>
-    </select>
+    <label class='col-sm-2 control-label'>
+      lot
+    </label>
+    <div class="col-sm-10">
+      <select chosen
+              class='form-control'
+              data-ng-model='parkingRecord.lot'
+              data-ng-options='lot for lot in allLots'
+              data-in-container='allLots'
+              required>
+      </select>
+    </div>
   </div>
 
   <div class='form-group'
        data-ng-controller='TypeController'>
-    <label>type</label>
-    <select chosen
-            class='form-control'
-            data-ng-model='parkingRecord.type'
-            data-ng-options='type for type in allTypes'
-            data-in-container='allTypes'
-            required>
-    </select>
+    <label class='col-sm-2 control-label'>
+      type
+    </label>
+    <div class="col-sm-10">
+      <select chosen
+              class='form-control'
+              data-ng-model='parkingRecord.type'
+              data-ng-options='type for type in allTypes'
+              data-in-container='allTypes'
+              required>
+      </select>
+    </div>
   </div>
 
   <div class='form-group'
        data-ng-controller='PaymentTypeController'>
-    <label>payment type</label>
-    <select chosen
-            class='form-control'
-            data-ng-model='parkingRecord.payment_type'
-            data-ng-options='paymentType for paymentType in allPaymentTypes'
-            data-in-container='allPaymentTypes'
-            required>
-    </select>
+    <label class='col-sm-2 control-label'>
+      payment type
+    </label>
+    <div class="col-sm-10">
+      <select chosen
+              class='form-control'
+              data-ng-model='parkingRecord.payment_type'
+              data-ng-options='paymentType for paymentType in allPaymentTypes'
+              data-in-container='allPaymentTypes'
+              required>
+      </select>
+    </div>
   </div>
 
   <div class='form-group'
        data-ng-controller='SportController'>
-    <label>sport</label>
-    <select chosen
-            class='form-control'
-            data-ng-model='parkingRecord.sport'
-            data-ng-options='sport for sport in allSports'
-            data-in-container='allSports'
-            required>
-    </select>
+    <label class='col-sm-2 control-label'>
+      sport
+    </label>
+    <div class="col-sm-10">
+      <select chosen
+              class='form-control'
+              data-ng-model='parkingRecord.sport'
+              data-ng-options='sport for sport in allSports'
+              data-in-container='allSports'
+              required>
+      </select>
+    </div>
   </div>
 
   <div class='form-group'
        data-ng-controller='DepartmentController'>
     <!-- TODO Autocomplete with 'add new' a la youtube add to playlist -->
-    <label>department</label>
-    <select chosen
-            class='form-control'
-            data-ng-model='parkingRecord.department'
-            data-ng-options='department for department in allDepartments'
-            data-in-container='allDepartments'
-            required>
-    </select>
+    <label class='col-sm-2 control-label'>
+      department
+    </label>
+    <div class="col-sm-10">
+      <select chosen
+              class='form-control'
+              data-ng-model='parkingRecord.department'
+              data-ng-options='department for department in allDepartments'
+              data-in-container='allDepartments'
+              required>
+      </select>
+    </div>
   </div>
 
   <div class='form-group'>
     <!-- TODO Autocomplete with 'add new', a la youtube add to playlist -->
-    <label>contact</label>
-    <select chosen
-            class='form-control'
-            required>
-    </select>
+    <label class='col-sm-2 control-label'>
+      contact
+    </label>
+    <div class="col-sm-10">
+      <select chosen
+              class='form-control'
+              required>
+      </select>
+    </div>
   </div>
 
   <div class='form-group'>
-    <input type="checkbox" required />
-    <label>has placard</label>
+    <div class="col-sm-offset-2 col-sm-10">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" required>has placard
+        </label>
+      </div>
+    </div>
   </div>
 
   <div class='form-group'>
-    <input type="checkbox" required />
-    <label>handicapped</label>
+    <div class="col-sm-offset-2 col-sm-10">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" required>handicapped
+        </label>
+      </div>
+    </div>
   </div>
 
   <div class='form-group'>
-    <input type="checkbox" required />
-    <label>wheelchair accessible</label>
+    <div class="col-sm-offset-2 col-sm-10">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" required>wheelchair accessible
+        </label>
+      </div>
+    </div>
   </div>
 
   <div class='form-group'>
-    <input type="checkbox" required />
-    <label>is return</label>
+    <div class="col-sm-offset-2 col-sm-10">
+      <div class="checkbox">
+        <label>
+        </label>
+        <input type="checkbox" required>is return
+      </div>
+    </div>
   </div>
 </form>
