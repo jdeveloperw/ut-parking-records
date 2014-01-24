@@ -16,20 +16,6 @@ var createValidatorLink = function(directiveName, isValid) {
   }
 }
 
-var Validator = function(directiveName, isValid) {
-  return {
-    require: 'ngModel',
-    link: createValidatorLink(directiveName, isValid)
-  };
-};
-
-/* TODO is the correct way to use _ ? */
-var ContainmentValidator = function(directiveName, getContainer) {
-  return Validator(directiveName, function(viewValue) {
-    return _.contains(getContainer(), viewValue);
-  });
-};
-
 angular.module('myApp.directives', ['myApp.services'])
   .directive('inContainer', function() {
     return {
