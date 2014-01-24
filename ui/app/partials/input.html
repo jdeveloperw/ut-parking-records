@@ -2,11 +2,16 @@
 * Tooltips
 * Convert to camelCase
 -->
-<form class='css-form' data-ng-controller="InputFormController" novalidate>
-  <!-- TODO should we be using html5 min/max? -->
+<form class='css-form'
+      data-ng-controller="InputFormController"
+      novalidate>
+      
   <div>
     <label>number of permits</label>
-    <input type="number" min='1' data-ng-model='parking_record.number_of_permits' required />
+    <input type='number'
+           min='1'
+           data-ng-model='parking_record.number_of_permits'
+           required />
   </div>
 
   <div>
@@ -32,7 +37,11 @@
   <!-- TODO should we be using html5 min/max? -->
   <div data-ng-controller='YearController'>
     <label>year</label>
-    <input type="number" min='{{minYear}}' max='{{maxYear}}' data-ng-model='parking_record.year' required />
+    <input type='number'
+           min='{{minYear}}'
+           max='{{maxYear}}'
+           data-ng-model='parking_record.year'
+           required />
   </div>
 
   <!-- TODO can first_permit_number = last_permit_number? -->
@@ -40,39 +49,60 @@
 
   <div data-ng-controller='PermitNumberController'>
     <label>first permit number</label>
-    <input type="number" min='{{minPermitNumber}}' max='{{maxPermitNumber}}' data-ng-model='parking_record.first_permit_number' required />
+    <input type='number'
+           min='{{minPermitNumber}}'
+           max='{{maxPermitNumber}}'
+           data-ng-model='parking_record.first_permit_number'
+           required />
   </div>
 
   <div data-ng-controller='PermitNumberController'>
     <label>last permit number</label>
-    <input type="number" min='{{minPermitNumber}}' max='{{maxPermitNumber}}' data-ng-model='parking_record.last_permit_number' required />
+    <input type="number"
+           min='{{minPermitNumber}}'
+           max='{{maxPermitNumber}}'
+           data-ng-model='parking_record.last_permit_number'
+           required />
   </div>
 
   <div data-ng-controller='LotController'>
     <!-- TODO Chosen plugin -->
     <label>lot</label>
-    <select chosen data-ng-model='parking_record.lot' data-ng-options='lot for lot in allLots' required valid-lot>
+    <select chosen
+            data-ng-model='parking_record.lot'
+            data-ng-options='lot for lot in allLots'
+            in-container='allLots'
+            required>
     </select>
   </div>
 
   <div data-ng-controller='TypeController'>
     <!-- TODO Chosen plugin -->
     <label>type</label>
-    <select data-ng-model='parking_record.type' data-ng-options='type for type in allTypes' required valid-type>
+    <select data-ng-model='parking_record.type'
+            data-ng-options='type for type in allTypes'
+            in-container='allTypes'
+            required>
     </select>
   </div>
 
   <div data-ng-controller='PaymentTypeController'>
     <!-- TODO Chosen plugin -->
     <label>payment type</label>
-    <select data-ng-model='parking_record.payment_type' data-ng-options='paymentType for paymentType in allPaymentTypes' required valid-payment-type>
+    <select data-ng-model='parking_record.payment_type'
+            data-ng-options='paymentType for paymentType in allPaymentTypes'
+            in-container='allPaymentTypes'
+            required>
     </select>
   </div>
 
   <div data-ng-controller='SportController'>
     <!-- TODO Chosen plugin -->
     <label>sport</label>
-    <select data-ng-model='parking_record.sport' data-ng-options='sport for sport in allSports' required valid-sport>
+    <select data-ng-model='parking_record.sport'
+            data-ng-options='sport for sport in allSports'
+            in-container='allSports'
+            required>
     </select>
   </div>
 
@@ -80,7 +110,10 @@
     <!-- TODO Chosen plugin -->
     <!-- TODO Autocomplete with 'add new' a la youtube add to playlist -->
     <label>department</label>
-    <select data-ng-model='parking_record.department' data-ng-options='department for department in allDepartments' required valid-department>
+    <select data-ng-model='parking_record.department'
+            data-ng-options='department for department in allDepartments'
+            in-container='allDepartments'
+            required>
     </select>
   </div>
 
