@@ -4,7 +4,7 @@
 
 angular.module('myApp.controllers', ['myApp.services'])
   .controller('InputFormController', function($scope) {
-    $scope.parking_record = ParkingRecords.new();
+    $scope.parkingRecord = ParkingRecords.new();
   })
   .controller('YearController', function($scope, minYear, maxYear) {
     $scope.minYear = minYear;
