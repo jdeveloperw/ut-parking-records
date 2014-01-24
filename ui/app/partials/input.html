@@ -71,7 +71,7 @@
     <select chosen
             data-ng-model='parkingRecord.lot'
             data-ng-options='lot for lot in allLots'
-            in-container='allLots'
+            data-in-container='allLots'
             required>
     </select>
   </div>
@@ -79,9 +79,10 @@
   <div data-ng-controller='TypeController'>
     <!-- TODO Chosen plugin -->
     <label>type</label>
-    <select data-ng-model='parkingRecord.type'
+    <select chosen
+            data-ng-model='parkingRecord.type'
             data-ng-options='type for type in allTypes'
-            in-container='allTypes'
+            data-in-container='allTypes'
             required>
     </select>
   </div>
@@ -89,9 +90,10 @@
   <div data-ng-controller='PaymentTypeController'>
     <!-- TODO Chosen plugin -->
     <label>payment type</label>
-    <select data-ng-model='parkingRecord.payment_type'
+    <select chosen
+            data-ng-model='parkingRecord.payment_type'
             data-ng-options='paymentType for paymentType in allPaymentTypes'
-            in-container='allPaymentTypes'
+            data-in-container='allPaymentTypes'
             required>
     </select>
   </div>
@@ -99,9 +101,10 @@
   <div data-ng-controller='SportController'>
     <!-- TODO Chosen plugin -->
     <label>sport</label>
-    <select data-ng-model='parkingRecord.sport'
+    <select chosen
+            data-ng-model='parkingRecord.sport'
             data-ng-options='sport for sport in allSports'
-            in-container='allSports'
+            data-in-container='allSports'
             required>
     </select>
   </div>
@@ -110,9 +113,10 @@
     <!-- TODO Chosen plugin -->
     <!-- TODO Autocomplete with 'add new' a la youtube add to playlist -->
     <label>department</label>
-    <select data-ng-model='parkingRecord.department'
+    <select chosen
+            data-ng-model='parkingRecord.department'
             data-ng-options='department for department in allDepartments'
-            in-container='allDepartments'
+            data-in-container='allDepartments'
             required>
     </select>
   </div>
