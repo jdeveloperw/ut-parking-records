@@ -38,6 +38,48 @@ var Departments = {
 }
 
 
+var Contacts = {
+  all: function() {
+    return ['ashry', 'gerg', 'cromulus', 'gcc-pedantic'];
+  }
+}
+
+
+var mockPersons = [{
+  id: '1234',
+  netId: 'ashly',
+  firstName: 'Ashly',
+  lastName: 'Pearson',
+  email: 'ashry@utk.edu',
+}];
+
+
+var Persons = {
+  all: function() {
+    return mockPersons;
+  },
+  new: function() {
+    return {
+      id: '',
+      netId: '',
+      firstName: '',
+      lastName: '',
+      email: '',
+    }
+  },
+  create: function(person) {
+    mockPersons.push(person);
+    return person;
+  },
+  read: function() {
+  },
+  update: function(person) {
+  },
+  delete: function() {
+  }
+}
+
+
 var ParkingRecords = {
   new: function() {
     return {
@@ -54,7 +96,7 @@ var ParkingRecords = {
       payment_type: 'chicken',
       sport: 'football',
       department: 'nuclear engineering',
-      person: 'Ashly!'
+      contact: ''
     }
   }
 }
@@ -86,5 +128,8 @@ angular.module('myApp.services', [])
   })
   .service('Departments', function() {
     return Departments;
+  })
+  .service('Persons', function() {
+    return Persons;
   })
   ;
