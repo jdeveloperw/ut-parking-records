@@ -1,7 +1,32 @@
 ---
-- hosts: localhost
+#- hosts: localhost
+#  tasks:
+#  # TODO add custom /etc/ssh/sshd_config
+#  - name: Install python-describe
+#    pip: name=describe state=present
+#    sudo: yes
+
+- hosts: webservers
+  user: ansible
+  sudo: yes
+  sudo_user: root
   tasks:
-  # TODO add custom /etc/ssh/sshd_config
-  - name: Install python-describe
-    pip: name=describe state=present
-    sudo: yes
+  - name: install packages
+    action: apt pkg={{ item }} state=latest
+    with_items:
+      - nginx 
+      - git
+  - name: generate ssh key pair
+    shell: ssh-keygen -f /root/.ssh/github -N '' creates=/root/.ssh/github
+  - name: copy ssh config
+    copy: src=ssh-config dest=/root/.ssh/config owner=root group=root mode=0644
+  - name: clone greg_project
+    git: dest=/opt/greg_project repo=git@github.com:benjamincrom/greg_project.git accept_hostkey=True key_file=/root/.ssh/github
+  - name: copy nginx config
+    copy: src=./nginx-greg_project.conf dest=/etc/nginx/sites-available/greg_project owner=root group=root mode=0644
+  - name: disable default nginx server
+    file: path=/etc/nginx/sites-enabled/default state=absent
+  - name: enable greg_project nginx server
+    file: src=/etc/nginx/sites-available/greg_project path=/etc/nginx/sites-enabled/greg_project state=link
+  - name: ensure nginx is running
+    service: name=nginx state=restarted
