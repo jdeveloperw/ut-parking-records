@@ -83,17 +83,17 @@ var Persons = {
 var ParkingRecords = {
   new: function() {
     return {
-      number_of_permits: 0,
-      has_placard: false,
-      is_handicapped: false,
-      is_wheel_chair_accessible: false,
-      is_return: false,
+      numberOfPermits: 0,
+      hasPlacard: false,
+      isHandicapped: true,
+      isWheelchairAccessible: false,
+      isReturn: true,
       year: 2007,
-      first_permit_number: 0,
-      last_permit_number: 0,
+      firstPermitNumber: 0,
+      lastPermitNumber: 0,
       lot: 'CG',
       type: 'this',
-      payment_type: 'chicken',
+      paymentType: 'chicken',
       sport: 'football',
       department: 'nuclear engineering',
       contact: ''
