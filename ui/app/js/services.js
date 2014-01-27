@@ -18,9 +18,9 @@ angular.module('myApp.services', [])
       new: function() {
         return {
           numberOfPermits: 0,
-          hasPlacard: false,
+          hasPlacard: true,
           isHandicapped: true,
-          isWheelchairAccessible: false,
+          isWheelchairAccessible: true,
           isReturn: true,
           year: 2007,
           firstPermitNumber: 0,
