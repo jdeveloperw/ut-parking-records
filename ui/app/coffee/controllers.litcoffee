@@ -6,7 +6,7 @@ Create a controller for the parking record form
 
     module.controller 'InputFormController',
       class InputFormController
-        constructor: ->
+        constructor: (ParkingRecords) ->
           @parkingRecord = ParkingRecords.new();
 
 Controller for the Year input field
@@ -85,7 +85,10 @@ When addNewContact() is called, it will open a modal with the new contact form
             controller: 'AddNewPersonController as addNewPerson',
           }
 
+          Persons = @Persons
+
           modalInstance.result.then (person) ->
             # TODO how to do this without referring to $scope?
             # @$scope.parkingRecord.contact = person
+            # TODO Use scope.$watch instead or broadcast event from Persons service
             @allContacts = Persons.all()

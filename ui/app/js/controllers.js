@@ -5,7 +5,7 @@
   module = angular.module('myApp.controllers', ['myApp.services']);
 
   module.controller('InputFormController', InputFormController = (function() {
-    function InputFormController() {
+    function InputFormController(ParkingRecords) {
       this.parkingRecord = ParkingRecords["new"]();
     }
 
@@ -105,11 +105,12 @@
     }
 
     ContactController.prototype.addNewContact = function() {
-      var modalInstance;
+      var Persons, modalInstance;
       modalInstance = this.$modal.open({
         templateUrl: 'partials/create-new-contact.html',
         controller: 'AddNewPersonController as addNewPerson'
       });
+      Persons = this.Persons;
       return modalInstance.result.then(function(person) {
         return this.allContacts = Persons.all();
       });
