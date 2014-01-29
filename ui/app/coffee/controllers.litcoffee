@@ -1,15 +1,18 @@
-Instantiate the module with a dependency on the services module
+Instantiate the module with a dependency on the services module.
 
     module = angular.module 'myApp.controllers', ['myApp.services']
 
-Create a controller for the parking record form
+Create a controller for the parking record form.
+We're using AngularJS's 'Controller As' syntax,
+which allows us to set properties on a controller object,
+which the template can access.
 
     module.controller 'InputFormController',
       class InputFormController
         constructor: (ParkingRecords) ->
           @parkingRecord = ParkingRecords.new();
 
-Controller for the Year input field
+Controller for the Year input field.
 
     module.controller 'YearController',
       class YearController
