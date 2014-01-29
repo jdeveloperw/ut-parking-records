@@ -5,8 +5,9 @@
   module = angular.module('myApp.controllers', ['myApp.services']);
 
   module.controller('InputFormController', InputFormController = (function() {
-    function InputFormController(ParkingRecords) {
-      this.parkingRecord = ParkingRecords["new"]();
+    function InputFormController(CurrentParkingRecord) {
+      this.CurrentParkingRecord = CurrentParkingRecord;
+      this.parkingRecord = this.CurrentParkingRecord;
     }
 
     return InputFormController;
@@ -98,21 +99,23 @@
   })());
 
   module.controller('ContactController', ContactController = (function() {
-    function ContactController($modal, Persons) {
+    function ContactController($modal, Persons, CurrentParkingRecord) {
       this.$modal = $modal;
       this.Persons = Persons;
+      this.CurrentParkingRecord = CurrentParkingRecord;
       this.allContacts = this.Persons.all();
     }
 
-    ContactController.prototype.addNewContact = function() {
-      var Persons, modalInstance;
+    ContactController.prototype.addNewContact = function(CurrentParkingRecord) {
+      var modalInstance,
+        _this = this;
       modalInstance = this.$modal.open({
         templateUrl: 'partials/create-new-contact.html',
         controller: 'AddNewPersonController as addNewPerson'
       });
-      Persons = this.Persons;
       return modalInstance.result.then(function(person) {
-        return this.allContacts = Persons.all();
+        _this.CurrentParkingRecord.contact = person;
+        return _this.allContacts = _this.Persons.all();
       });
     };
 

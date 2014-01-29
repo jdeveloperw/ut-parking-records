@@ -9,8 +9,8 @@ which the template can access.
 
     module.controller 'InputFormController',
       class InputFormController
-        constructor: (ParkingRecords) ->
-          @parkingRecord = ParkingRecords.new();
+        constructor: (@CurrentParkingRecord) ->
+          @parkingRecord = @CurrentParkingRecord
 
 Controller for the Year input field.
 
@@ -76,22 +76,19 @@ Controller for the contact input field
 
     module.controller 'ContactController',
       class ContactController
-        constructor: (@$modal, @Persons) ->
+        constructor: (@$modal, @Persons, @CurrentParkingRecord) ->
           @allContacts = @Persons.all()
 
 When addNewContact() is called, it will open a modal with the new contact form
 
-        addNewContact: ->
+        addNewContact: (CurrentParkingRecord) ->
 
           modalInstance = @$modal.open {
             templateUrl: 'partials/create-new-contact.html',
             controller: 'AddNewPersonController as addNewPerson',
           }
 
-          Persons = @Persons
-
-          modalInstance.result.then (person) ->
-            # TODO how to do this without referring to $scope?
-            # @$scope.parkingRecord.contact = person
+          modalInstance.result.then (person) =>
+            @CurrentParkingRecord.contact = person
             # TODO Use scope.$watch instead or broadcast event from Persons service
-            @allContacts = Persons.all()
+            @allContacts = @Persons.all()

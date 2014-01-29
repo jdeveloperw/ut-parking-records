@@ -113,4 +113,22 @@ angular.module('myApp.services', [])
 
     return Persons;
   })
+  .factory('CurrentParkingRecord', function() {
+    return {
+      numberOfPermits: 0,
+      hasPlacard: true,
+      isHandicapped: true,
+      isWheelchairAccessible: true,
+      isReturn: true,
+      year: 2007,
+      firstPermitNumber: 0,
+      lastPermitNumber: 0,
+      lot: 'CG',
+      type: 'this',
+      paymentType: 'chicken',
+      sport: 'football',
+      department: 'nuclear engineering',
+      contact: ''
+    }
+  })
   ;
