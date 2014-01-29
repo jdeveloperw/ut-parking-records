@@ -38,6 +38,7 @@ angular.module('myApp.services', [])
   })
   .service('Lots', function() {
     var Lots = {
+      /* TODO use promises instead */
       all: function() {
         return [ 'AA', 'CG', 'GT' ];
       }

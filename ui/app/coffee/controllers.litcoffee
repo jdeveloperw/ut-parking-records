@@ -29,6 +29,7 @@ Controller for the parking lot input field
     module.controller 'LotController',
       class LotController
         constructor: (Lots) ->
+          # TODO can this be done more like CurrentParkingRecord with automatic data binding?
           @allLots = Lots.all()
 
 Controller for the type input field
