@@ -5,6 +5,8 @@ Greg's Access DB project. To infinity, and beyond!
 
 <pre>
 greg_project
+├── .gitignore
+    Files git should ignore
 ├── README.md
     This file
 ├── ansible
