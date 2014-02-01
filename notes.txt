@@ -1,4 +1,0 @@
-File is in MS Access format
-
-To Do:
-- Download Access and inspect file
