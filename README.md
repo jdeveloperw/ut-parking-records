@@ -18,6 +18,6 @@ greg_project
 |   Schema for the database
 ├── original_files
 |   Original Microsoft Access Database
-├── ui
+└── ui
     AngularJS Single-Page Application front-end
 </pre>
