@@ -18,14 +18,18 @@ createValidatorLinker = (directiveName, isValid) ->
 
 Instantiate the module with a dependency on the services module.
 
-    module = angular.module 'myApp.directives', ['myApp.services']
+```
+module = angular.module 'myApp.directives', ['myApp.services']
+```
 
 This directive validates that the input value is in the container (list, set, JSON)
 
-    module.directive 'inContainer', ->
-      require: 'ngModel'
-      restrict: 'A'
-      scope:
-        container: '=inContainer'
-      link: createValidatorLinker 'inContainer', (viewValue, scope) ->
-        return _.contains scope.container, viewValue
+```
+module.directive 'inContainer', ->
+  require: 'ngModel'
+  restrict: 'A'
+  scope:
+    container: '=inContainer'
+  link: createValidatorLinker 'inContainer', (viewValue, scope) ->
+    return _.contains scope.container, viewValue
+```
