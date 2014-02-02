@@ -7,12 +7,13 @@ This function creates a linker function for a validator directive.
 - Side Effects: sets validity for the directive to true if isValid(viewValue) is true,
   otherwise sets validity to false
 
-      createValidatorLinker = (directiveName, isValid) ->
-        return (scope, elm, attrs, ctrl) ->
-          ctrl.$parsers.unshift (viewValue) ->
-            viewValueIsValid = isValid viewValue, scope
-            ctrl.$setValidity directiveName, viewValueIsValid or false
-            return if viewValueIsValid then viewValue else undefined
+
+    createValidatorLinker = (directiveName, isValid) ->
+      return (scope, elm, attrs, ctrl) ->
+        ctrl.$parsers.unshift (viewValue) ->
+          viewValueIsValid = isValid viewValue, scope
+          ctrl.$setValidity directiveName, viewValueIsValid or false
+          return if viewValueIsValid then viewValue else undefined
 
 Instantiate the module with a dependency on the services module.
 
