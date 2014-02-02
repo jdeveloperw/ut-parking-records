@@ -10,7 +10,8 @@ greg_project
 ├── README.md
     This file
 ├── ansible
-    Scripts for deploying staging/production servers, (and managing developer workspaces, coming soon)
+    Scripts for deploying staging/production servers
+    (and managing developer workspaces, coming soon)
 ├── api
     Files for the API
 ├── database
