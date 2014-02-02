@@ -43,11 +43,9 @@ So you want to deploy a server with the latest AngularJS Frontend.
         source ./scripts/ansible-env-setup.sh
 
 
-- Controller: Edit `hosts.txt`; comment out other servers and add your own.
+- Controller: Edit `$MYNAME-hosts.txt`:
 
         [webservers]
-        #107.170.245.161 ansible_ssh_private_key_file=/Users/jdwhite/.ssh/ansible
-        #198.199.115.16  ansible_ssh_private_key_file=/Users/jdwhite/.ssh/ansible
         MY-SERVER-IP ansible_ssh_private_key_file=~/.ssh/ansible
 
 - Controller: Run ansible.
@@ -60,4 +58,4 @@ So you want to deploy a server with the latest AngularJS Frontend.
 
 - Controller: Run ansible again; this time it should work.
 
-        ansible-playbook -i hosts.txt playbook.yml
+        ansible-playbook -i $MY_HOSTS_FILE playbook.yml
