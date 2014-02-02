@@ -8,6 +8,7 @@ This function creates a linker function for a validator directive.
   otherwise sets validity to false
 
 
+
     createValidatorLinker = (directiveName, isValid) ->
       return (scope, elm, attrs, ctrl) ->
         ctrl.$parsers.unshift (viewValue) ->
