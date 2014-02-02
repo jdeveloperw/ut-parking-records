@@ -25,34 +25,39 @@ greg_project/ansible/
 
 So you want to deploy a server with the latest AngularJS Frontend.
 
-- controller = your local computer
-- controllee = the server managed by ansible
+### Definitions
 
-### Setup your laptop
-- You first need to clone the ansible repo on the contoller:
+- controller := your local computer
+- controllee := the server managed by ansible
+
+### Procedure
+- Controllee: Setup using [ansible-bootstrap](https://github.com/jdeveloperw/ansible-bootstrap)
+- Controller: Clone the ansible repo on the contoller.
+  You only need to run this once.
 
         ./scripts/ansible-clone.sh
 
-- And then setup your environment on the controller:
+- Controller: Setup your environment on the controller.
+  Run this any time you open a new shell and want to run `ansible-playbook`.
      
         source ./scripts/ansible-env-setup.sh
 
-- Setup the controllee using [ansible-bootstrap](https://github.com/jdeveloperw/ansible-bootstrap)
 
-- On the controller edit `hosts.txt`; comment out other servers and add your own:
+- Controller: Edit `hosts.txt`; comment out other servers and add your own.
 
         [webservers]
         #107.170.245.161 ansible_ssh_private_key_file=/Users/jdwhite/.ssh/ansible
         #198.199.115.16  ansible_ssh_private_key_file=/Users/jdwhite/.ssh/ansible
         MY-SERVER-IP ansible_ssh_private_key_file=~/.ssh/ansible
 
-- On the controller, run ansible; it will fail because we do not have permission to clone greg_project.
+- Controller: Run ansible.
+  it will fail because we do not have permission to clone greg_project.
 
         ansible-playbook -i hosts.txt playbook.yml
 
-- On the controllee, there is a newly created public key file in `/root/.ssh/github.pub`.
-  Add this ssh key to github -- see [Add your SSH key to GitHub](https://help.github.com/articles/generating-ssh-keys)
+- Controllee: There is a newly created public key file in `/root/.ssh/github.pub`.
+  [Add this SSH key to GitHub.](https://help.github.com/articles/generating-ssh-keys)
 
-- Run ansible again; this time it should work.
+- Controller: Run ansible again; this time it should work.
 
         ansible-playbook -i hosts.txt playbook.yml
