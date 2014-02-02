@@ -43,7 +43,7 @@ So you want to deploy a server with the latest AngularJS Frontend.
         source ./scripts/ansible-env-setup.sh
 
 
-- Controller: Edit `$MYHOSTSFILE` (mine is jd-hosts.txt):
+- Controller: Edit `$MYHOSTSFILE` (mine is `jd-hosts.txt`):
 
         [webservers]
         MY-SERVER-IP ansible_ssh_private_key_file=~/.ssh/ansible
