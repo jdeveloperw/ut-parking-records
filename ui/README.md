@@ -10,7 +10,7 @@ To develop for this AngularJS app, you will need to run 3 things:
 
 ## Setup
 
-- [Install node.js and npm.](http://nodejs.org/download/).
+- [Install node.js and npm.](http://nodejs.org/download/)
   Node.js is to javascript what Django is to python,
   and npm is to javascript what pip/easy_install is to python.
 - Install libraries through npm.
