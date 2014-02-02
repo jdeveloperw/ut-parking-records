@@ -51,7 +51,7 @@ So you want to deploy a server with the latest AngularJS Frontend.
 - Controller: Run ansible.
   it will fail because we do not have permission to clone greg_project.
 
-        ansible-playbook -i hosts.txt playbook.yml
+        ansible-playbook -i $MY_HOSTS_FILE playbook.yml
 
 - Controllee: There is a newly created public key file in `/root/.ssh/github.pub`.
   [Add this SSH key to GitHub.](https://help.github.com/articles/generating-ssh-keys)
