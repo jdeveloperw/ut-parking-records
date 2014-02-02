@@ -41,7 +41,10 @@ To develop for this AngularJS app, you will need to run 3 things:
 
     scripts/web-server.js
 
-And then visit `http://localhost:8000/app/index.html`.
+And then visit
+
+    http://localhost:8000/app/index.html
+
 There is currently an issue with `http://localhost:8000/app/index-async.html`,
 where there is an error thrown because of the order in which the scripts are loaded;
 I'm still trying to debug it.
