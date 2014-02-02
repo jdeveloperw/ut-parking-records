@@ -10,14 +10,14 @@ This directory includes Ansible scripts for deploying the staging/production ser
 greg_project/ansible/
 ├── README.md
     This file
-├── hosts.txt
-    List of staging/production servers and their roles
+├── jd-hosts.txt
+    JD's staging/production servers and their roles
 ├── nginx-greg_project.conf
     Staging/production configuration of NGINX to serve AngularJS resources (NGINX replaces apache)
 ├── playbook.yml
     Contains the steps necessary to deploy a production/staging server, given that bootstraping is complete.
 ├── scripts
-└── ssh-config
+└── sshd-config
     SSH configuration for production/staging servers managed by ansible
 </pre>
 
