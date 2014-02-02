@@ -94,7 +94,7 @@ module.controller 'AddNewPersonController',
 ```
 
 Controller for the contact input field.
-When addNewContact() is called, it will open a modal with the new contact form
+When addNewContact() is called, it will open a modal with the new contact form.
 
 ```
 module.controller 'ContactController',
