@@ -18,8 +18,6 @@ greg_project
 |   Files for the API
 ├── database
 |   Schema for the database
-├── node_modules
-|   Locally installed node modules
 ├── original_files
 |   Original Microsoft Access Database
 ├── package.json
