@@ -1,1 +1,2 @@
-coffee -o ui/app/coffee/ -cw ui/app/js/
+#!/bin/sh
+coffee -o ui/app/js/ -cw ui/app/coffee/
