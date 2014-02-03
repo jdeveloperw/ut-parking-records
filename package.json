@@ -1,7 +1,10 @@
 {
   "name": "athletics-permits",
   "version": "0.1.0",
-  "ui": "./ui/package.json",
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/benjamincrom/greg_project"
+  },
   "devDependencies": {
     "grunt": "~0.4.2",
     "grunt-contrib-jshint": "~0.6.3",
