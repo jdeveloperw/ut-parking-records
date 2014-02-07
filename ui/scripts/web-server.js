@@ -1,5 +1,18 @@
 #!/usr/bin/env node
 
+// TODO docopt
+/*
+Start the HttpServer.
+
+Usage: ui/scripts/webserver.js [PORT] [IP]
+
+Arguments:
+  port  The port the server will run on
+        Default: process.env.PORT if defined, else 8000
+  ip    The ip the server will run on
+        Default: process.env.IP if defined, else localhost
+*/
+
 var util = require('util'),
     http = require('http'),
     fs = require('fs'),
@@ -13,7 +26,7 @@ function main(argv) {
     'GET': createServlet(StaticServlet),
     'HEAD': createServlet(StaticServlet)
   }).start(Number(argv[2]) || process.env.PORT || DEFAULT_PORT,
-           process.env.IP || 'localhost');
+           Number(argv[3]) || process.env.IP || 'localhost');
 }
 
 function escapeHtml(value) {
