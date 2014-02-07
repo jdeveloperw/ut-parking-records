@@ -22,8 +22,6 @@ greg_project
 |   Original Microsoft Access Database
 ├── package.json
 |   Package description; includes dependency list
-├── scripts
-|   Scripts (these will be moved into Gruntfile.coffee)
 └── ui
     AngularJS Single-Page Application front-end
 </pre>
