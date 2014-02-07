@@ -60,7 +60,8 @@ Simple, but beats typing it in yourself.
     grunt install
         
 ### Start the servers
-Start the webserver, karma testrunner, and coffeescript compiler:
+To hack on our AngularJS code, you need to Start the webserver,
+karma testrunner, and coffeescript compiler:
 
 - Start the webserver
 
