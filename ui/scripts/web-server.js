@@ -8,7 +8,7 @@ Arguments: \n\
   <port>  The port the server will run on \n\
           Default: process.env.PORT if defined, else 8000 \n\
   <ip>    The ip the server will run on \n\
-          Default: process.env.IP if defined, else localhost"
+          Default: process.env.IP if defined, else localhost\n"
 
 var util = require('util'),
     http = require('http'),
