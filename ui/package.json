@@ -8,6 +8,7 @@
     "karma-junit-reporter": "~0.1",
     "karma-jasmine": "~0.1",
     "karma-ng-scenario": "~0.1",
-    "karma-safari-launcher": "~0.1.1"
+    "karma-safari-launcher": "~0.1.1",
+    "docopt": "~0.4.0"
   }
 }

@@ -1,32 +1,33 @@
 #!/usr/bin/env node
 
-// TODO docopt
-/*
-Start the HttpServer.
-
-Usage: ui/scripts/webserver.js [PORT] [IP]
-
-Arguments:
-  port  The port the server will run on
-        Default: process.env.PORT if defined, else 8000
-  ip    The ip the server will run on
-        Default: process.env.IP if defined, else localhost
-*/
+var doc = "Start the HttpServer. \n\
+\n\
+Usage: ui/scripts/webserver.js [<port>] [<ip>] \n\
+\n\
+Arguments: \n\
+  <port>  The port the server will run on \n\
+          Default: process.env.PORT if defined, else 8000 \n\
+  <ip>    The ip the server will run on \n\
+          Default: process.env.IP if defined, else localhost"
 
 var util = require('util'),
     http = require('http'),
     fs = require('fs'),
     url = require('url'),
-    events = require('events');
+    events = require('events'),
+    docopt = require('docopt').docopt;
 
 var DEFAULT_PORT = 8000;
 
 function main(argv) {
+  var options = docopt(doc);
+  var port = Number(options.port) || process.env.PORT || DEFAULT_PORT;
+  var ip = Number(options.ip) || process.env.IP || 'localhost';
+  
   new HttpServer({
     'GET': createServlet(StaticServlet),
     'HEAD': createServlet(StaticServlet)
-  }).start(Number(argv[2]) || process.env.PORT || DEFAULT_PORT,
-           Number(argv[3]) || process.env.IP || 'localhost');
+  }).start(port,ip);
 }
 
 function escapeHtml(value) {
