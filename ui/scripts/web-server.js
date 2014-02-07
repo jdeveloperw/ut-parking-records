@@ -12,7 +12,8 @@ function main(argv) {
   new HttpServer({
     'GET': createServlet(StaticServlet),
     'HEAD': createServlet(StaticServlet)
-  }).start(Number(argv[2]) || process.env.PORT || DEFAULT_PORT, process.env.IP || 'localhost');
+  }).start(Number(argv[2]) || process.env.PORT || DEFAULT_PORT,
+           process.env.IP || 'localhost');
 }
 
 function escapeHtml(value) {
