@@ -29,21 +29,65 @@ greg_project
 </pre>
 
 ## Getting Started
+Get our AngularJS app running on your local machine.
 This is a work in progress.
+
+### Install grunt
+
+We're using [GruntJS](http://gruntjs.com/), a task runner written in javascript,
+to do all of our -- ahem -- grunt work.
+Grunt has a command-line interface; here's how to set it up:
 
 - [Install node.js.](http://nodejs.org/download/)
 - Install grunt-cli globally.
 
         npm install -g grunt-cli
-
-- Install node modules (this installs all of the modules in package.json):
+        
+- Install node modules for grunt (this installs all of the modules in package.json):
 
         npm install
+        
+That was easy!
 
-- Installs submodule npm packages.
+### Install packages we depend on
 
-        grunt install
+Now that we have grunt installed,
+we can install all of the dependencies that our project needs.
+This command `cd`'s to all subdirectories containing `package.json`
+and runs `npm install` in each directory.
+Simple, but beats typing it in yourself.
 
-- Start the webserver, karma testrunner, and coffeescript compiler.
+    grunt install
+        
+### Start the servers
+Start the webserver, karma testrunner, and coffeescript compiler:
 
-        grunt ui
+- Start the webserver
+
+        grunt server
+        
+    and visit http://localhost/ui/app/index.html.
+    
+- Start the karma testrunner
+
+        grunt tests
+        
+    and anytime you edit a `.*coffee` file in `ui/app/coffee`,
+    all of the unit tests will automatically be run.
+    How's that for Test-Driven Development?
+        
+- Start the coffeescript compiler
+
+        grunt brew
+        
+    and anytime you edit a `.*coffee` file in `ui/app/coffee`,
+    it will automatically be compiled to javascript.
+    Just refresh the http://localhost/ui/app/index.html to see your changes.
+        
+Or run all three in the same shell with one command:
+
+    grunt ui
+        
+## More grunt tasks
+To see all that grunt can do, run `grunt -h`.
+Here are a few grunt tasks that may be useful:
