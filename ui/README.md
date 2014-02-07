@@ -26,33 +26,11 @@ To develop for this AngularJS app, you will need to run 3 things:
 - Coffee, which compiles the coffeescript source files into javascript
 - Karma, which executes unit tests continuously, re-running tests any time you change a file
 
-## Setup
+To see how to set these up, please see the top-level README for this project.
 
-- [Install node.js and npm.](http://nodejs.org/download/)
-  Node.js is to javascript what Django is to python,
-  and npm is to javascript what pip/easy_install is to python.
-- Install libraries through npm.
-  (There are probably some libraries I've missed here;
-  if you find them please add them to this doc).
+## I was hacking away, and I added a new node dependency.
 
-      npm install karma coffee-script
+Sweet!  Make sure it is in package.json:
 
-## Running the node.js server
-
-    scripts/web-server.js
-
-And then visit
-
-    http://localhost:8000/app/index.html
-
-There is currently an issue with `http://localhost:8000/app/index-async.html`,
-where there is an error thrown because of the order in which the scripts are loaded;
-I'm still trying to debug it.
-
-## Running the coffeescript compiler
-
-    scripts/compile-coffee.sh
-
-## Running jasmine/karma unit tests
-
-    scripts/test.sh
+    node install $MYPACKAGE --save-dev
+    git commit package.json -m "Added new and awesome $MYPACKAGE"
