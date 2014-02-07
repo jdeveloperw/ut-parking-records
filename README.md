@@ -91,4 +91,3 @@ Or run all three in the same shell with one command:
         
 ## More grunt tasks
 To see all that grunt can do, run `grunt -h`.
-Here are a few grunt tasks that may be useful:
