@@ -12,7 +12,7 @@ function main(argv) {
   new HttpServer({
     'GET': createServlet(StaticServlet),
     'HEAD': createServlet(StaticServlet)
-  }).start(Number(argv[2]) || DEFAULT_PORT);
+  }).start(Number(argv[2]) || process.env.PORT || DEFAULT_PORT, process.env.IP || 'localhost');
 }
 
 function escapeHtml(value) {
@@ -38,10 +38,11 @@ function HttpServer(handlers) {
   this.server = http.createServer(this.handleRequest_.bind(this));
 }
 
-HttpServer.prototype.start = function(port) {
+HttpServer.prototype.start = function(port, ip) {
   this.port = port;
-  this.server.listen(port);
-  util.puts('Http Server running at http://localhost:' + port + '/');
+  this.ip = ip;
+  this.server.listen(port, ip);
+  util.puts('Http Server running at http://' + ip + ':' + port + '/');
 };
 
 HttpServer.prototype.parseUrl_ = function(urlString) {
