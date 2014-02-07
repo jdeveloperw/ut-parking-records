@@ -39,6 +39,9 @@ module.exports = (grunt) ->
       install:
         options: shell_options 
         command: 'npm install ; cd ui/ ; npm install ; cd ..'
+      gitconfig:
+        options: shell_options 
+        command: 'git config push.default tracking'
            
   grunt.registerTask 'server', 'Start node.js server', ['shell:server']
   grunt.registerTask 'tests', 'Start jasmine/karma test runner', ['shell:tests']
@@ -46,3 +49,4 @@ module.exports = (grunt) ->
   grunt.registerTask 'ui', 'Start server, tests, and brew', ['shell:ui']
   grunt.registerTask 'tree', 'Print file tree', ['shell:tree']
   grunt.registerTask 'install', 'Run npm install for all folders', ['shell:install']
+  grunt.registerTask 'gitconfig', 'Setup git configuration', ['shell:gitconfig']
