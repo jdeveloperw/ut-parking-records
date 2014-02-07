@@ -27,3 +27,10 @@ To develop for this AngularJS app, you will need to run 3 things:
 - Karma, which executes unit tests continuously, re-running tests any time you change a file
 
 To see how to set these up, please see the top-level README for this project.
+
+## I was hacking away, and I added a new node dependency.
+
+Sweet!  Make sure it is in package.json:
+
+    node install $MYPACKAGE --save-dev
+    git commit package.json -m "Added new and awesome $MYPACKAGE"
