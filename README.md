@@ -86,6 +86,10 @@ karma testrunner, and coffeescript compiler:
 Or run all three in the same shell with one command:
 
     grunt ui
+
+### Visit the local server
+
+Head on over to [http://localhost:8000/ui/app/index.html](http://localhost:8000/ui/app/index.html) to see the server in action.
         
 ## More grunt tasks
 To see all that grunt can do, run `grunt -h`.
