@@ -1,5 +1,3 @@
-This AngularJS project was cloned from [angular-seed](https://github.com/angular/angular-seed)
-
 # Overview
 
 <pre>
