@@ -2,10 +2,9 @@ Instantiate the module with no dependencies
 
     module = angular.module 'myApp.filters', []
 
-Create a controller for the parking record form.
-We're using AngularJS's 'Controller As' syntax,
-which allows us to set properties on a controller object,
-which the template can access.
+Create a filter for returning the application version.
+Whereever we see "%VERSION%" in a template,
+we'll replace it with the app version.
 
     module.filter 'interpolate', ['version', (version) ->
       return (text) ->
