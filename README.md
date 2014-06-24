@@ -81,7 +81,7 @@ karma testrunner, and coffeescript compiler:
         
     and anytime you edit a `.*coffee` file in `ui/app/coffee`,
     it will automatically be compiled to javascript.
-    Just refresh the http://localhost/ui/app/index.html to see your changes.
+    Just refresh http://localhost/ui/app/index.html to see your changes.
         
 Or run all three in the same shell with one command:
 
