@@ -1,11 +1,14 @@
 greg_project
 ============
 
-Greg's Access DB project. To infinity, and beyond!
+Greg's Access DB project.
+
 This will replace the Parking Record report generation,
 currently in Microsoft Access.
-It has a web UI written in AngularJS which communicates
-with the MySQL DB through a REST API.
+
+This project has a web UI written in AngularJS.
+The UI has been mocked out with fake data,
+but it will eventually communicate with the MySQL database through a REST API.
 
 <pre>
 greg_project
