@@ -7,7 +7,7 @@ This directory includes Ansible scripts for deploying the staging/production ser
 - (Coming soon) Database
 
 <pre>
-greg_project/ansible/
+greg-project-public/ansible/
 ├── README.md
     This file
 ├── jd-hosts.txt

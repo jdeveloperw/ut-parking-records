@@ -11,7 +11,7 @@ The UI has been mocked out with fake data,
 but it will eventually communicate with the MySQL database through a REST API.
 
 <pre>
-greg_project
+greg-project-public/
 ├── .gitignore
 |   Files git should ignore
 ├── Gruntfile.coffee

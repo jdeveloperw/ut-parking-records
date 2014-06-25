@@ -1,7 +1,7 @@
 # Overview
 
 <pre>
-app/
+greg-project-public/ui/app/
 ├── README.md
 |   This file
 ├── coffee/
