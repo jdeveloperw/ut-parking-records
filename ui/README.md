@@ -30,7 +30,7 @@ To develop for this AngularJS app, you will need to run 3 things:
 - Coffee, which compiles the coffeescript source files into javascript
 - Karma, which executes unit tests continuously, re-running tests any time you change a file
 
-To see how to set these up, please see the top-level README for this project.
+To see how to set these up, please see the [top-level README](../README.md) for this project.
 
 ## I was hacking away, and I added a new node dependency.
 
