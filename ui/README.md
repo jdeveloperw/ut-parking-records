@@ -16,6 +16,8 @@
     Contains all of the tests/specs
 </pre>
 
+(file tree generated with `tree -F -L 1`)
+
 # Getting Started Developing
 
 To develop for this AngularJS app, you will need to run 3 things:

@@ -24,6 +24,8 @@ app/
     HTML templates
 </pre>
 
+(file tree generated with `tree -F -L 1`)
+
 ## Why coffeescript?
 Mostly because of [literate coffeescript](http://coffeescript.org/#literate).
 Rather than putting comments in the code,

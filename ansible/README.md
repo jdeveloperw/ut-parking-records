@@ -21,6 +21,8 @@ greg_project/ansible/
     SSH configuration for production/staging servers managed by ansible
 </pre>
 
+(file tree generated with `tree -F -L 1`)
+
 ## Getting Started
 
 So you want to deploy a server with the latest AngularJS Frontend.
