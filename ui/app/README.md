@@ -1,5 +1,8 @@
 # Overview
 
+This directory contains all of the static resources needed for our webserver.
+We are using AngularJS written in Coffeescript.
+
 <pre>
 ut-parking-records/ui/app/
 ├── README.md
