@@ -79,7 +79,7 @@ karma testrunner, and coffeescript compiler:
 
         grunt tests
         
-    and anytime you edit a `.*coffee` file in `ui/app/coffee`,
+    and anytime you edit a `*.*coffee` file in `ui/app/coffee`,
     all of the unit tests will automatically be run.
     How's that for Test-Driven Development?
         
@@ -87,7 +87,7 @@ karma testrunner, and coffeescript compiler:
 
         grunt brew
         
-    and anytime you edit a `.*coffee` file in `ui/app/coffee`,
+    and anytime you edit a `*.*coffee` file in `ui/app/coffee`,
     it will automatically be compiled to javascript.
     Just refresh http://localhost/ui/app/index.html to see your changes.
         
