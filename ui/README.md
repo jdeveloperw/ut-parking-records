@@ -1,5 +1,8 @@
 # Overview
 
+This is the AngularJS UI for interacting with Parking Records
+and generating aggregate reports.
+
 <pre>
 ut-parking-records/ui/
 ├── README.md
@@ -10,7 +13,7 @@ ut-parking-records/ui/
 |   Configuration for node.js and karma servers
 ├── logs
 ├── package.json
-|   Node.js package description (I need to figure out how this is used)
+|   Node.js package description
 ├── scripts
 |   Scripts for running the server and executing unit tests
 └── test
