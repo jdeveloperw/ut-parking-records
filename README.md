@@ -1,7 +1,7 @@
-greg_project
+ut-parking-records
 ============
 
-Greg's Access DB project.
+University of Tennessee Parking Records project, public fork.
 
 This will replace the Parking Record report generation,
 currently in Microsoft Access.
