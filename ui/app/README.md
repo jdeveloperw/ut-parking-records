@@ -22,7 +22,7 @@ app/
 |   Included javascript libaries
 └── partials/
     HTML templates
-<pre>
+</pre>
 
 ## Why coffeescript?
 Mostly because of [literate coffeescript](http://coffeescript.org/#literate).
