@@ -3,8 +3,7 @@ ut-parking-records
 
 University of Tennessee Parking Records project, public fork.
 
-This will replace the Parking Record report generation,
-currently in Microsoft Access.
+This will replace the Parking Record report generation currently in Microsoft Access.
 
 This project has a web UI written in AngularJS.
 The UI has been mocked out with fake data,
