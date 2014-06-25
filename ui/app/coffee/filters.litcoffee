@@ -1,6 +1,6 @@
-Instantiate the module with no dependencies
+Instantiate the module with a dependency on the services module
 
-    module = angular.module 'myApp.filters', []
+    module = angular.module 'myApp.filters', ['myApp.services']
 
 Create a filter for returning the application version.
 Whereever we see "%VERSION%" in a template,

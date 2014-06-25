@@ -2,7 +2,7 @@
 (function() {
   var module;
 
-  module = angular.module('myApp.filters', []);
+  module = angular.module('myApp.filters', ['myApp.services']);
 
   module.filter('interpolate', [
     'version', function(version) {
