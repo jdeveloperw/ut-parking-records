@@ -1,7 +1,7 @@
 # Overview
 
 <pre>
-greg-project-public/ui/
+ut-parking-records/ui/
 ├── README.md
 |   This file
 ├── app
